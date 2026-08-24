@@ -5,17 +5,42 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Settings:
-    # Qdrant Database Configuration
-    # We default to a local folder so your vectors are saved to disk between server restarts.
-    QDRANT_STORAGE_PATH: str = os.getenv("QDRANT_STORAGE_PATH", "./qdrant_data")
-    QDRANT_COLLECTION_NAME: str = os.getenv("QDRANT_COLLECTION_NAME", "query_cache")
+    # ── Redis Connection Settings ─────────────────────────────────────────────
+    REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379")
     
-    # Embedding Configuration
-    # BAAI/bge-small-en-v1.5 explicitly outputs 384-dimensional vectors.
+    # Time-To-Live in seconds (e.g., 3600 = 1 hour). 
+    # Redis will automatically delete entries older than this.
+    CACHE_TTL: int = int(os.getenv("CACHE_TTL", "3600"))
+
+    # ── Embedding & Similarity Settings ───────────────────────────────────────
     VECTOR_DIMENSION: int = int(os.getenv("VECTOR_DIMENSION", "384"))
     
-    # Semantic Search Threshold
-    # Any distance above this number is considered a Cache Hit (e.g., 90% similar)
-    CACHE_THRESHOLD: float = float(os.getenv("CACHE_THRESHOLD", "0.90"))
+    # Cache Threshold. Note: RedisVL calculates distance (1.0 - similarity).
+    # If you want 90% similarity, the maximum distance allowed is 0.10.
+    CACHE_THRESHOLD: float = float(os.getenv("CACHE_THRESHOLD", "0.10"))
+
+    # ── RedisVL Schema Definition ──────────────────────────────────────────────
+    # We define the RedisVL index structure declaratively here.
+    CACHE_SCHEMA: dict = {
+        "index": {
+            "name": os.getenv("REDIS_INDEX_NAME", "query_cache_idx"),
+            "prefix": os.getenv("REDIS_KEY_PREFIX", "cache"),
+            "storage_type": "hash"
+        },
+        "fields": [
+            {"name": "query", "type": "text"},
+            {"name": "answer", "type": "text"},
+            {
+                "name": "embedding",
+                "type": "vector",
+                "attrs": {
+                    "dims": VECTOR_DIMENSION,
+                    "distance_metric": "cosine",
+                    "algorithm": "hnsw",
+                    "datatype": "float32"
+                }
+            }
+        ]
+    }
 
 settings = Settings()

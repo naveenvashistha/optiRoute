@@ -1,5 +1,7 @@
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
+from src.core.db import init_redis
 import logging
 
 # ── Logging setup ─────────────────────────────────────────────────────────────
@@ -13,7 +15,20 @@ logging.basicConfig(
 )
 logger = logging.getLogger("src.main")
 
-app = FastAPI(title="OptiRoute API", version="1.0.0")
+# ── Lifespan Context ──────────────────────────────────────────────────────────
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Everything BEFORE the yield runs exactly once when the server boots
+    logger.info("Initializing infrastructure...")
+    init_redis()
+    logger.info("OptiRoute is fully booted and ready to accept traffic.")
+    
+    yield
+    
+    # Everything AFTER the yield runs when you stop the server (Ctrl+C)
+    logger.info("Shutting down OptiRoute...")
+
+app = FastAPI(title="OptiRoute API", version="1.0.0", lifespan=lifespan)
 
 # Allow the React dev server (port 3000) to call this API and exchange cookies.
 # allow_credentials=True is required for the qm_session cookie to be sent/received.
@@ -25,7 +40,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-logger.info("QueryMind API initialized")
+logger.info("OptiRoute initialized")
 
 @app.get("/api/health")
 def health():
