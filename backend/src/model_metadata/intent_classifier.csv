@@ -1,0 +1,2190 @@
+query,result
+explain big o notation for algorithms,1
+whats the diff between bubble sort and quicksort,1
+how do hash tables resolve collisions under the hood,1
+what are the advantages of linked lists over arrays,1
+define dynamic programming in computer science,1
+what exactly is memoization anyway,1
+depth first search versus breadth first search,1
+explain the time complexity of binary search,1
+what does np complete mean,1
+how do bloom filters work,1
+what are graph databases actually used for,1
+explain red black trees simply pls,1
+greedy algorithms vs divide and conquer,1
+wht is the space complexity of merge sort,1
+how to reverse a linked list conceptually,1
+what is the purpose of a heap data structure,1
+what is tail recursion,1
+big o of inserting into a binary search tree,1
+explain dijkstras algorithm step by step,1
+difference between a directed and undirected graph,1
+what makes a sorting algorithm stable,1
+lru cache implementation details,1
+conceptually how do radix sorts function,1
+time complexity to find max value in an unsorted array,1
+how do closures work in javascript,1
+what are python decorators,1
+difference between abstract class and interface in java,1
+explain the rust ownership model,1
+how does garbage collection work in go basically,1
+differences between let n const in js,1
+what is a goroutine,1
+explain the global interpreter lock in python,1
+what are generators in es6,1
+multiple inheritance vs mixins,1
+how do event loops work in nodejs,1
+diff between var and let in javascript,1
+what are cpp smart pointers,1
+explain list comprehensions in python,1
+what is the meaning of duck typing,1
+sql inner join versus left join,1
+what is hoisting in javascript,1
+differences between tuples and lists in python,1
+what does static mean in java,1
+java stream api map vs flatmap,1
+how do promises work in javascript,1
+what is the virtual dom in react,1
+sql group by vs having clause explained,1
+explain pointers in c programming,1
+explain model view controller architecture,1
+what is the singleton design pattern,1
+can someone explain the main differences between a microservices approach and a monolithic software architecture,1
+what is the factory method pattern,1
+explain domain driven design,1
+what do the solid principles stand for,1
+event driven architecture pros and cons,1
+differences between hexagonal architecture and clean architecture,1
+what is the observer pattern used for,1
+how does dependency injection work,1
+explain the strategy pattern,1
+what is serverless architecture,1
+explain command query responsibility segregation,1
+facade pattern vs adapter pattern,1
+what is inversion of control,1
+decorator pattern in software design,1
+what are the benefits of the builder pattern,1
+whats a reverse proxy do,1
+service mesh architecture concepts explained,1
+difference between stateful and stateless applications,1
+explain the repository pattern,1
+how does the pub sub messaging model work,1
+what is a bounded context in ddd,1
+what does clean code mean in software engineering,1
+how do b-tree database indexes work,1
+explain first normal form in sql,1
+what does acid compliance mean,1
+differences between sql and nosql databases,1
+what is database sharding,1
+how would someone explain the cap theorem in the context of distributed systems to a beginner,1
+how do database transactions actually work,1
+what is a materialized view,1
+indexing strategies for large tables,1
+relational databases vs graph databases,1
+what causes database deadlocks,1
+explain dirty reads in sql,1
+what is write ahead logging,1
+difference between primary key and unique key,1
+how does redis caching improve performance,1
+document database versus column family store,1
+what is a sql stored procedure,1
+isolation levels in relational databases,1
+explain database connection pooling,1
+how does eventual consistency work,1
+what are time series databases used for,1
+what is an execution plan in sql,1
+explain foreign key constraints,1
+differences between clustered and non clustered indexes,1
+difference between tcp and udp protocol,1
+how exactly does the three way handshake process work in the tcp protocol,1
+explain the osi model layers,1
+what is a websocket connection,1
+http get vs post methods,1
+how does dns resolution happen,1
+grpc versus rest performance,1
+what is the purpose of cors,1
+how do cookies work in http,1
+explain the concept of a subnet mask,1
+what happens when a url is typed into a web browser exactly,1
+differences between ipv4 and ipv6,1
+what is long polling,1
+how does an ssl handshake work,1
+http2 multiplexing explained,1
+what is a content delivery network,1
+what are the different http status code families,1
+graph ql vs rest api,1
+explain reverse dns lookups,1
+how does network address translation work,1
+what is bgp routing,1
+server sent events versus websockets,1
+differences between mac address and ip address,1
+what does an api gateway do,1
+what is continuous integration,1
+how do docker containers work under the hood,1
+explain kubernetes pods,1
+infrastructure as code definition,1
+how does a blue green deployment strategy work,1
+what is a service level objective,1
+differences between virtual machines and containers,1
+what does terraform actually do,1
+what is a canary release,1
+explain the concept of gitops,1
+what is a load balancer,1
+auto scaling concepts in cloud computing,1
+continuous delivery versus continuous deployment,1
+what is a helm chart,1
+log aggregation best practices,1
+observability versus monitoring,1
+what is chaos engineering,1
+zero downtime deployment techniques,1
+concepts behind serverless functions,1
+what is configuration management,1
+cloud native architecture definition,1
+what are the most important differences between horizontal scaling and vertical scaling for cloud environments,1
+what is an ingress controller in kubernetes,1
+explain infrastructure provisioning,1
+how does oauth2 work,1
+explain cross site scripting vulnerabilities,1
+what is sql injection,1
+what is the fundamental difference between symmetric encryption and asymmetric encryption in modern cryptography,1
+how do json web tokens function,1
+what is cross site request forgery,1
+explain zero trust architecture,1
+what is a denial of service attack,1
+how does multi factor authentication work,1
+role based access control explained,1
+differences between hashing and encryption,1
+what is a brute force attack,1
+man in the middle attack meaning,1
+how to salt a password properly,1
+what is public key infrastructure,1
+explain the least privilege principle in cybersecurity,1
+directory traversal vulnerability explained,1
+what is a web application firewall,1
+concepts of session hijacking,1
+transport layer security meaning,1
+openid connect versus oauth,1
+what is rate limiting used for,1
+differences between authentication and authorization,1
+difference between git merge and git rebase,1
+what does git fetch do,1
+explain the git flow branching model,1
+how do git hooks work,1
+git reset soft vs hard,1
+what is a detached head state in git,1
+git cherry pick explained,1
+how to resolve a merge conflict conceptually,1
+difference between git pull and git fetch,1
+what is the purpose of git stash,1
+trunk based development strategy explained,1
+explain the concept of a pull request,1
+what are git submodules,1
+what does squashing commits mean,1
+meaning of git bisect,1
+central vs distributed version control systems,1
+how does git track changes internally,1
+what is the staging area in git,1
+git revert versus git reset,1
+shallow clone in git meaning,1
+fast forward merge explained,1
+what is a bare repository in git,1
+differences between git log and git reflog,1
+what is the pythagorean theorem,1
+how to calculate the area of a circle,1
+explain bayes theorem simply,1
+difference between mean median and mode,1
+derivative of sin(x),1
+what r eigenvalues and eigenvectors in linear algebra,1
+how to solve a quadratic equation,1
+proof of the infinitude of primes,1
+what is a standard deviation,1
+fundamental theorem of calculus explained,1
+how to find the volume of a sphere,1
+whats a p-value in statistics,1
+def of irrational number,1
+how does the fibonacci sequence work,1
+what is the monte carlo method,1
+formula for compound probability,1
+what are taylor series used for,1
+integral of e^x,1
+how to multiply matrixes,1
+explain normal distribution,1
+whats the golden ratio,1
+discrete vs continuous variables,1
+how to calculate standard error,1
+what is the riemann hypothesis,1
+what is newtons first law of motion,1
+difference between speed and velocity,1
+how does quantum entanglement work,1
+explain the laws of thermodynamics,1
+speed of light in a vacuum,1
+how do magnets work,1
+formula for kinetic energy,1
+what causes gravity,1
+difference between mass and weight,1
+what is a higgs boson,1
+explain string theory in simple terms,1
+how does a lever work,1
+what is absolute zero,1
+maxwells equations explained,1
+what is the doppler effect,1
+theory of special relativity basics,1
+how does friction work,1
+what is dark matter,1
+principle of conservation of energy,1
+what is an electromagnetic wave,1
+schrodingers cat thought experiment explained,1
+what is terminal velocity,1
+how does nuclear fusion generate energy,1
+what is the photoelectric effect,1
+how to read the periodic table,1
+covalent vs ionic bonds,1
+what is an isotope,1
+explain le chateliers principle,1
+what is avogadros number,1
+how does a catalyst work in a chemical reaction,1
+what is the ph scale,1
+difference between an acid and a base,1
+what are noble gases,1
+how to balance a chemical equation,1
+what is an exothermic reaction,1
+structure of a benzene ring,1
+what is stoichiometry,1
+definition of a mole in chemistry,1
+how does oxidation and reduction work,1
+what is a polymer,1
+difference between organic and inorganic chemistry,1
+what causes rust to form,1
+how do intermolecular forces work,1
+what is activation energy,1
+properties of transition metals,1
+what is a buffer solution,1
+explain the bohr model of the atom,1
+what is electronegativity,1
+what is the powerhouse of the cell,1
+difference between dna and rna,1
+how does photosynthesis work,1
+explain the theory of evolution by natural selection,1
+what is mitosis,1
+how do vaccines build immunity,1
+what are stem cells,1
+structure of the human heart,1
+how does the digestive system work,1
+what is a microbiome,1
+punnett square basics,1
+how do neurons communicate,1
+what is crispr gene editing,1
+difference between dominant and recessive alleles,1
+what is homeostasis,1
+how do enzymes work,1
+what are white blood cells,1
+explain the krebs cycle,1
+what is horizontal gene transfer,1
+how do antibiotics kill bacteria,1
+what is a keystone species,1
+central dogma of molecular biology,1
+what are telomeres,1
+how does the lymphatic system work,1
+why do seasons happen,1
+how are mountains formed,1
+what causes earthquakes,1
+meteor vs meteorite difference,1
+how do ocean currents work,1
+what is the greenhouse effect,1
+how are black holes created,1
+what is plate tectonics,1
+layers of the earth from core to crust,1
+time required for sunlight to reach earth,1
+what is a supernova,1
+explain the water cycle,1
+how are stalactites formed,1
+what is the habitable zone of a star,1
+difference between climate and weather,1
+what causes the tides,1
+how did the universe begin,1
+what is cosmic microwave background radiation,1
+how do hurricanes form,1
+what is a pulsar,1
+describe the rock cycle,1
+what is the milankovitch cycle,1
+how does radiometric dating work,1
+what is the oort cloud,1
+what causes inflation,1
+difference between microeconomics and macroeconomics,1
+how do supply and demand affect prices,1
+what is a monopoly,1
+explain opportunity cost,1
+what are interest rates,1
+difference between a stock and a bond,1
+what is the gold standard,1
+how does fractional reserve banking work,1
+what is gross domestic product,1
+explain the concept of comparative advantage,1
+what is a fiat currency,1
+fiscal vs monetary policy,1
+what is a mutual fund,1
+how does quantitative easing work,1
+what is a bear market,1
+explain the time value of money,1
+what is a tariff,1
+definition of liquidity in finance,1
+what is the gini coefficient,1
+how do central banks control the money supply,1
+what is price elasticity of demand,1
+explain the tragedy of the commons,1
+what is a sovereign wealth fund,1
+what were the main causes of world war 1,1
+how did the cold war start,1
+who built the pyramids of giza,1
+what was the industrial revolution,1
+difference between capitalism and communism,1
+what happened during the french revolution,1
+how did the roman empire collapse,1
+what was the silk road,1
+causes of the american civil war,1
+what was the magna carta,1
+how did apartheid end in south africa,1
+what was the renaissance,1
+explain the mandate of heaven in chinese history,1
+what is the united nations security council,1
+how did the scramble for africa impact the continent,1
+what was the treaty of versailles,1
+history of the byzantine empire,1
+what was the black death,1
+who were the mongols,1
+difference between a republic and a democracy,1
+how did the printing press change society,1
+what was the cold war space race,1
+origins of the non aligned movement,1
+what is the dunning kruger effect,1
+difference between classical and operant conditioning,1
+how does short term memory work,1
+what is confirmation bias,1
+explain maslows hierarchy of needs,1
+what is cognitive dissonance,1
+how does the placebo effect work,1
+what is neuroplasticity,1
+difference between a psychopath and a sociopath,1
+what is the bystander effect,1
+how do optical illusions fool the brain,1
+what is the stanford prison experiment,1
+explain the concept of flow state,1
+what is the mere exposure effect,1
+how does schema theory explain memory,1
+what is the availability heuristic,1
+explain pavlovs dog experiment,1
+what is attachment theory,1
+how does rem sleep impact memory consolidation,1
+intrinsic vs extrinsic motivation,1
+explain the stroop effect,1
+what is theory of mind,1
+how does working memory differ from short term memory,1
+how to create a new account,1
+whats the process to reset a forgotten pasword,1
+can an account be permanently deleted,1
+how many days until a deleted account is wiped,1
+is two factor authentication supported,1
+how to change the email address on file,1
+steps to update a profile picture,1
+can multiple users share one single login,1
+what happens to an account if the password is lost,1
+how to sign up for a free account,1
+are there options for single sign on,1
+where to find the profile settings page,1
+is a mobile phone number strictly required for registration,1
+how to recover a compromised account,1
+can one email address be used for multiple accounts,1
+what are the password complexity requirements,1
+how to log out from all active devices at once,1
+does an account expire after a long period of inactivity,1
+steps to verify an email address during signup,1
+how to switch between multiple workspaces,1
+cant remember login email what should be done,1
+how to upgrade a free plan to premium,1
+are annual subscriptions cheaper than monthly billing,1
+what payment methods are accepted,1
+is there a refund policy for cancled plans,1
+how to download past billing invoices,1
+do subscriptions auto renew by default at the end of the term,1
+what happens when a free trial period ends,1
+can a subscription be paused instead of fully cancelled,1
+how to add a new credit card for future billing,1
+are taxes already included in the advertised subscription price,1
+is there a discount available for non profit organizations,1
+how to change the billing address printed on an invoice,1
+what currency are the subscription prices listed in,1
+how to switch from an annual to a monthly plan,1
+does cancelling a paid plan immediately delete the associated data,1
+are there any hidden fees for international payments,1
+how to get a formal receipt for a recent charge,1
+can billing responsibility be transferred to a different user,1
+what is the extra cost of adding more team members,1
+is wire transfer supported for large enterprise plans,1
+how long do refunds normally take to process,1
+what exactly does the bulk edit tool do,1
+how to use the advanced search filter effectively,1
+is there a dark mode theme available,1
+how to enable desktop push notifications,1
+does the software application support offline mode,1
+what is the main purpose of the dashboard analytics,1
+how to export generated reports to pdf format,1
+can custom templates be created from scratch,1
+is there a way to schedule posts in advance,1
+how does the automatic save feature work,1
+what display languages are natively supported in the app,1
+how to collaborate with team members on a shared project,1
+can user access permissions be fully customized,1
+is there a mobile application available for smartphones,1
+how to set up custom alerts and scheduled reminders,1
+what specific types of visual charts can be generated,1
+does the platform have a built in spell checker,1
+how to use keyboard shortcuts for faster navigation,1
+can the graphical user interface be customized,1
+what is the difference between standard and administrator roles,1
+how to pin a favorite project to the main home screen,1
+why would a login attempt fail with a correct password,1
+how to clear browser cache to fix endless loading errors,1
+what to do if the application keeps crashing unexpectedly,1
+why is the dashboard page loading so slow today,1
+how to fix a 404 not found error on the main portal,1
+troubleshooting audio issues during a web conference call,1
+why are automated email notifications not arriving in the inbox,1
+how to resolve a persistent connection timeout error,1
+what causes the invalid security token error message,1
+steps to troubleshoot a completely frozen application screen,1
+why would a downloaded export file be totally empty,1
+how to fix weird formatting issues in a generated report,1
+what to do when a password reset email never arrives,1
+troubleshooting guide for mobile app background syncing problems,1
+why is the final submit button currently greyed out,1
+how to safely bypass a browser blocked popup warning,1
+what does internal server error code 500 mean,1
+how to completely uninstall and reinstall the desktop client,1
+why are uploaded profile images appearing very blurry,1
+steps to fix microphone not detected hardware errors,1
+payment failed during checkout what to do next,1
+how to resolve overlapping text elements on the user interface,1
+how to request a complete and total data export,1
+where are the primary cloud servers physically located,1
+is user data fully encrypted at rest and in transit,1
+what specific personal information is collected during registration,1
+how many months are internal system access logs retained,1
+does the company ever sell personal information to third parties,1
+is the software platform fully compliant with privacy regulations,1
+how to successfully opt out of all marketing emails,1
+what happens to user data after an account is permanently deleted,1
+can a user legally request full deletion of personal records,1
+are external third party trackers utilized on the website,1
+how to view the most current version of the privacy policy,1
+who internally has administrative access to the stored database,1
+is strict regulatory compliance offered for highly sensitive medical data,1
+how to properly manage browser cookie tracking preferences,1
+what exact data is routinely shared with integration partners,1
+how to completely anonymize behavioral analytical data,1
+are server backups created automatically for disaster recovery purposes,1
+how long are deleted files kept in the temporary trash bin,1
+what specific security measures protect against malicious data breaches,1
+can users download a readable copy of all previous conversation history,1
+does the software natively integrate with cloud storage drives,1
+how to securely connect a team messaging workspace,1
+is there an official rest api available for external developers,1
+what third party productivity apps are supported natively,1
+can bulk tabular data be imported directly from a csv file,1
+does the core platform work on open source operating systems,1
+which major web browsers are officially supported for full compatibility,1
+how to set up outbound webhooks for real time external notifications,1
+is there a downloadable plugin for standard cms websites,1
+can internal calendars be seamlessly synced with external email clients,1
+how to successfully link a custom branded domain name,1
+does the mobile app still work on much older operating system versions,1
+are major third party workflow automation tools fully supported,1
+what is the proper method to authenticate external api requests,1
+is single sign on supported via enterprise identity providers,1
+can the software interface be directly embedded inside an iframe,1
+what is the exact process for revoking third party application access,1
+does the system effortlessly connect to popular enterprise crm platforms,1
+how to properly configure and use the native crm integration,1
+are there official extensions available for major web browsers,1
+are wearable smart watches officially supported for push notifications,1
+what is the absolute maximum file size for uploaded attachments,1
+how many external api requests are officially allowed per minute,1
+is there a hard limit to the total number of active projects,1
+what happens exactly when the allocated monthly storage limit is reached,1
+how many total users can simultaneously join a single video call,1
+are there strict restrictions on daily outbound email sending volumes,1
+what is the maximum allowable character count for a standard text field,1
+how many custom vanity domains can be added to a premium plan,1
+is there a strict monthly bandwidth cap for hosted video content,1
+what is the system limit for simultaneous concurrent user logins,1
+how many data rows can be exported to a spreadsheet format at once,1
+are there specific usage quotas for generating artificial intelligence content,1
+what is the maximum permitted video length for direct media uploads,1
+how many distinct webhooks can be actively configured per account,1
+is there a definitive cap on the total number of saved custom templates,1
+what actually happens to the system if the api rate limit is exceeded,1
+how many categorisation tags can be applied to a single digital document,1
+what is the exact digital storage capacity for a standard free tier user,1
+are there functional limits on the total number of running automated workflows,1
+how long can a single recorded audio voice note be,1
+what is the highest maximum resolution supported for user profile pictures,1
+what are the most important first steps after creating a new account,1
+is there a comprehensive quick start guide available for absolute beginners,1
+how to properly complete the initial user onboarding checklist,1
+where to easily find official instructional video tutorials for new users,1
+how to correctly set up a user profile for the very first time,1
+what is the highly recommended workflow for starting a brand new project,1
+how to efficiently invite new colleagues during the initial workspace setup,1
+are there pre built sample templates provided to help get started quickly,1
+how to easily navigate the main administrative dashboard layout,1
+where exactly is the customer help center located in the main navigation menu,1
+what critical configuration settings should be carefully reviewed first,1
+how to run a basic diagnostic test connection immediately after installation,1
+is dedicated live onboarding training provided for new enterprise clients,1
+where to securely download the official desktop application software installer,1
+how to cleanly import historical initial data to populate the fresh system,1
+what are the minimum required system requirements for a fresh clean install,1
+how to properly verify the newly created account to unlock all full features,1
+step by step guide to customize the primary workspace name and brand logo,1
+where to find active online community forums for asking simple beginner questions,1
+how to temporarily hide or toggle the interactive screen walkthrough tour,1
+what is the fundamental difference between the main dashboard and the settings panel,1
+how to directly contact customer support agents for initial setup assistance,1
+what exactly are OKRs,1
+whats the diff between an okr and a kpi,1
+define agile methodology in project management,1
+who exactly are stakeholders in a business context,1
+difference between stakeholder and shareholder,1
+what do b2b and b2c mean,1
+what is a matrix organization structure,1
+explain the balanced scorecard framework,1
+what does kpi stand for,1
+what is a swot analysis,1
+difference between leadership and management,1
+what is a lean startup approach,1
+define core competencies in business strategy,1
+what is the exact difference between a corporate mission statement and a vision statement,1
+explain what change management means,1
+what is total quality management,1
+meaning of a value proposition,1
+what are porters five forces,1
+what is the definition of corporate social responsibility,1
+how do okrs differ from traditional goal setting frameworks used in large corporations,1
+what is kaizen,1
+what does gdpr mean,1
+difference between copyright and trademark,1
+what is an sla,1
+explain limited liability in corporate law,1
+whats a non disclosure agreement,1
+define intellectual property rights,1
+what is the difference between civil law and criminal law,1
+meaning of force majeure in a contract,1
+what are the key components of a software terms of service agreement,1
+what is a privacy policy,1
+explain the concept of fair use in copyright law,1
+difference between a patent and a trade secret,1
+what is indemnification,1
+what does hipaa compliance entail,1
+meaning of a breach of contract,1
+what is a master service agreement,1
+define what a class action lawsuit is,1
+difference between libel and slander,1
+what is an end user license agreement,1
+explain the principle of attorney client privilege,1
+what does ccpa stand for,1
+what is a wireframe,1
+difference between a wireframe and a prototype,1
+what are usability heuristics,1
+define web accessibility,1
+what is the difference between ui and ux design,1
+explain what a user persona is,1
+what is responsive web design,1
+meaning of affordance in ui design,1
+what is a mockup,1
+define a journey map in user experience,1
+what is the double diamond design process,1
+difference between raster and vector graphics,1
+what is information architecture,1
+explain the concept of mobile first design,1
+what are wcag guidelines,1
+meaning of a design system,1
+what is a card sorting exercise,1
+can someone explain the main differences between low fidelity wireframes and high fidelity interactive prototypes,1
+what is an empathy map,1
+define whitespace in graphic design,1
+what is a b testing in the context of ux,1
+what is seo,1
+difference between seo and sem,1
+explain what a marketing funnel is,1
+what is churn rate,1
+define customer acquisition cost,1
+what is lifetime value in marketing,1
+difference between inbound and outbound marketing,1
+what does cpc stand for,1
+meaning of a call to action,1
+what is content marketing,1
+explain the concept of growth hacking,1
+what is an affiliate marketing program,1
+difference between b2b marketing and b2c marketing,1
+what is a conversion rate,1
+define brand equity,1
+what are long tail keywords,1
+meaning of click through rate,1
+what is omnichannel marketing,1
+difference between organic and paid traffic,1
+what is a drip campaign,1
+explain the freemium business model,1
+what is a machine learning model,1
+difference between supervised and unsupervised learning,1
+explain overfitting in neural networks,1
+what are word embeddings,1
+define natural language processing,1
+what is the difference between ai and machine learning,1
+meaning of a training dataset,1
+what is deep learning,1
+explain what a large language model is,1
+what is data mining,1
+what is the fundamental difference between a relational database management system and a nosql database,1
+what is a convolutional neural network,1
+define reinforcement learning,1
+what is a data warehouse,1
+meaning of gradient descent,1
+what is data governance,1
+difference between data engineering and data science,1
+what is an algorithm,1
+explain the concept of computer vision,1
+what is predictive analytics,1
+define generative ai,1
+what is equity,1
+difference between a stock and a bond,1
+explain the concept of depreciation,1
+what is a burn rate,1
+define annual recurring revenue,1
+what is the difference between gross profit and net profit,1
+meaning of ebitda,1
+what is a balance sheet,1
+explain what an income statement is,1
+difference between cash flow and profit,1
+what is a capitalized expense,1
+define working capital,1
+what is an initial public offering,1
+meaning of return on investment,1
+what are accounts receivable,1
+explain the difference between fixed costs and variable costs in the context of corporate accounting,1
+what is venture capital,1
+explain the time value of money,1
+what is a mutual fund,1
+define compound interest,1
+what is a dividend,1
+what is a product roadmap,1
+difference between a product manager and a project manager,1
+explain what a product backlog is,1
+what is an mvp,1
+define a sprint in scrum,1
+what is the difference between scrum and kanban,1
+meaning of product market fit,1
+what is a user story,1
+explain acceptance criteria,1
+difference between epics and user stories,1
+what is a go to market strategy,1
+define a product lifecycle,1
+what is feature creep,1
+meaning of continuous discovery,1
+what is a daily standup meeting,1
+difference between a prototype and an mvp,1
+what is a product requirements document,1
+explain the role of a scrum master,1
+what is velocity in agile,1
+define story points,1
+what is sprint planning,1
+meaning of a retrospective meeting,1
+what is an api,1
+difference between saas paas and iaas,1
+explain cloud computing,1
+what is open source software,1
+define network latency,1
+what is the difference between front end and back end development,1
+meaning of microservices architecture,1
+what is a virtual machine,1
+explain what blockchain is,1
+difference between tcp and udp,1
+what is a load balancer,1
+define object oriented programming,1
+what is a rest api,1
+meaning of devops,1
+what is docker and what are containers,1
+difference between a compiler and an interpreter,1
+what is version control,1
+explain how dns works,1
+what is two factor authentication,1
+define bandwidth in networking,1
+what is a proxy server,1
+difference between http and https,1
+how to compress a video file without losing quality,1
+how do you clear browser cache and cookies,1
+steps to create a pivot table in a spreadsheet,1
+how to forcefully close an unresponsive application,1
+what is the process for formatting a hard drive,1
+how to set up two factor authentication,1
+how do u zip a folder,1
+how to take a screenshot on a computer,1
+how to change default applications for opening files,1
+steps for recovering deleted files from the recycle bin,1
+how to convert a text document to pdf format,1
+how do operating systems manage memory allocation,1
+how to resize an image proportionally,1
+how to schedule a task to run automatically on a computer,1
+what are the steps to encrypt a folder,1
+how to find the ip address of a router,1
+how to clear dns cache,1
+how to structure a formal business email,1
+how do you write a cover letter for a job application,1
+whats the proper format for a press release,1
+how to cite a research paper in apa style,1
+how to write an executive summary for a report,1
+steps to draft a non disclosure agreement,1
+how do you structure a persuasive speech,1
+how to write a resignation letter,1
+what is the standard format for a meeting agenda,1
+how to properly format dialogue in a novel,1
+how to write a compelling thesis statement,1
+steps for writing a literature review,1
+how to address a letter to a judge,1
+how do you structure an abstract for a scientific paper,1
+how to write meeting minutes effectively,1
+how to structure a standard five paragraph essay,1
+how does the pomodoro technique work?,1
+how to study using spaced repetition,1
+what are the steps for the feynman technique,1
+how to organize a daily schedule for maximum productivity,1
+how do memory palaces work for remembering lists,1
+how to effectively take notes during a lecture,1
+how to prioritize tasks using the eisenhower matrix,1
+steps to learn a new language from scratch,1
+how to mind map a complex topic,1
+how does the sq3r reading method work,1
+how to read a textbook effectively,1
+how to set smart goals,1
+how to structure a study session,1
+steps for breaking down a large project into smaller tasks,1
+how to practice active recall for exams,1
+how to manage time effectively when studying,1
+how do you interpret a scatter plot,1
+how to calculate standard deviation,1
+how are p values used in hypothesis testing,1
+what is the process for cleaning a messy dataset,1
+how to read a normal distribution curve,1
+how to calculate a moving average,1
+how do you determine statistical significance,1
+steps to perform a swot analysis,1
+how to calculate year over year growth rate,1
+how to read a box and whisker plot,1
+how do u find the median of a dataset,1
+how to calculate customer lifetime value,1
+how to interpret a correlation matrix,1
+what are the steps for qualitative data coding,1
+how to calculate churn rate,1
+how to read a logarithmic scale,1
+how do behavioral interviews generally work,1
+how to negotiate a starting salary offer,1
+what is the typical structure of an annual performance review,1
+how do you ask for a promotion,1
+how to structure a resume for applicant tracking systems,1
+how to network at a professional conference,1
+what are the steps to onboard a new employee,1
+how to deliver constructive feedback to a colleague,1
+how do 360 degree feedback assessments work,1
+how to answer situational interview questions,1
+how to transition into a management role,1
+steps for running an effective team meeting,1
+how to mediate a conflict between coworkers,1
+how do corporate stock options work,1
+how to write a project proposal,1
+how are layoffs typically communicated in a corporate setting,1
+how do you temper chocolate,1
+how to properly sharpen a kitchen knife,1
+what is the process for canning vegetables at home,1
+how to julienne carrots,1
+how does yeast make bread rise,1
+how to perform a basic deadlift correctly,1
+steps for changing a flat tire on a car,1
+how to properly warm up before a run,1
+how to brew kombucha from scratch,1
+how do you fold a fitted sheet?,1
+how to unblock a clogged sink drain,1
+what are the rules for playing chess,1
+how to properly execute a pushup,1
+how to cook rice on a stovetop,1
+how to descale a coffee maker,1
+how do you patch a hole in drywall,1
+how to jump start a car battery,1
+how to read a balance sheet,1
+how is compound interest calculated over time,1
+how do marginal tax brackets work,1
+how to calculate debt to income ratio,1
+how does short selling a stock work,1
+what is the process for amortizing a loan,1
+how to read an income statement,1
+how do mutual funds work,1
+how to calculate return on investment,1
+how does fractional reserve banking work,1
+steps to balance a checkbook,1
+how do capital gains taxes work,1
+how to calculate net worth,1
+how do bonds generate yield,1
+how to calculate a mortgage payment,1
+how does a reverse mortgage work,1
+how are clinical trials structured,1
+how does the peer review process for scientific journals work,1
+whats the process for passing a law,1
+how does photosynthesis work in plants,1
+how is drinking water purified in municipal plants,1
+how does a four stroke engine work,1
+what are the steps in a typical supply chain,1
+how does the water cycle work,1
+how do vaccines create immunity,1
+how is electricity generated in a nuclear power plant,1
+how do commercial airplanes generate lift,1
+how does the carbon cycle work,1
+what is the general process for manufacturing steel,1
+how does a bill become a law,1
+how do tectonic plates cause earthquakes,1
+how is a patent application processed,1
+how should I think about the concept of entropy in physics,1
+what should I know about how a roth ira actually works,1
+how do I understand the difference between active and passive voice,1
+how can I make sense of quantum entanglement,1
+what do I need to understand about the 2008 financial crisis,1
+how should I conceptualize the theory of relativity,1
+what should I know about how the electoral college functions,1
+how do I wrap my head around object oriented programming,1
+what exactly do I need to know about macroeconomics,1
+how should I think about the difference between veganism and vegetarianism,1
+how do I go about understanding the water cycle,1
+what should I know about basic first aid principles,1
+how can I understand the greenhouse effect better,1
+how should I think about the french revolution and its causes,1
+what do I need to know about how vaccines create immunity,1
+how do I understand the basic rules of rugby,1
+what should I memorize about the periodic table,1
+how should I conceptualize the structure of dna,1
+what do I need to understand about supply and demand,1
+how do I make sense of the branches of the us government,1
+how should i think about the golden ratio in art,1
+what should i know about the history of the roman empire,1
+how can i understand the process of photosynthesis,1
+what do i need to know about the laws of thermodynamics,1
+how should i think about the concept of compound interest,1
+what should i understand about how black holes work,1
+how do i wrap my mind around the concept of infinity,1
+what exactly should i know about how a combustion engine operates,1
+how should i think about stoicism as a philosophy,1
+what do i need to understand about how the stock market works,1
+how can i make sense of the metric system vs imperial,1
+what should i know about the basics of human anatomy,1
+how do i understand the difference between meiosis and mitosis,1
+how should i think about the psychological concept of cognitive dissonance,1
+what do i need to know about the origins of world war 1,1
+how can i understand the mechanics of plate tectonics,1
+what should i know about how wifi signals travel,1
+how do i make sense of the concept of inflation in economics,1
+how should i conceptualize the big bang theory,1
+what do i need to understand about the basic principles of aerodynamics,1
+what should my mental model of a blockchain be,1
+how should my approach to learning a new language look,1
+what should my understanding of human evolution consist of,1
+how should my mental model of a neural network work,1
+what should my expectations be for a standard software engineering interview,1
+how should my resume be formatted for applicant tracking systems,1
+what should my strategy be for memorizing long lists of facts,1
+how should my understanding of the scientific method be structured,1
+what should my mental model of a relational database be,1
+how should my approach to reading scientific papers be,1
+what should my understanding of marxism actually be,1
+how should my daily routine look for optimal circadian rhythm,1
+what should my mental model of cloud computing look like,1
+how should my approach to debugging standard software errors work,1
+what should my understanding of existentialism be based on,1
+how should my mental model of a computer's cpu function,1
+what should my general approach to writing an essay be,1
+how should my understanding of genetics and dna be framed,1
+what should my mental model of the solar system look like,1
+how should my approach to learning guitar chords progress,1
+what should my understanding of basic contract law be,1
+how should my mental model of how the internet works be structured,1
+what should my basic strategy for playing chess openings be,1
+how should my approach to brewing pour over coffee go,1
+what should my understanding of classical conditioning be,1
+how should my mental model of a sales funnel work,1
+what should my strategy be for pacing a marathon,1
+how should my understanding of medieval feudalism be,1
+what should my mental model of the immune system be,1
+how should my approach to public speaking generally be structured,1
+what should my understanding of basic accounting principles be,1
+how should my mental model of how a cell works function,1
+what should my approach be to formatting a formal business letter,1
+how should my understanding of the concept of natural selection be,1
+what should my mental model of how a camera lens works be,1
+how should my strategy for taking standardized tests generally look,1
+what should my understanding of abstract art be,1
+how should my mental model of a supply chain operate,1
+what should my approach to basic conflict resolution look like,1
+how should my understanding of the agile methodology be structured,1
+should i learn spanish or french first if i want to travel europe,1
+whats the best way to get better at typing fast,1
+is it worth learning to drive a manual transmission car in this day and age,1
+what is the recommended way to clean a cast iron skillet,1
+should a beginner start with acoustic or electric guitar,1
+whats the best way to train for a 5k from scratch,1
+is it generally better to rent or buy a home in a stable market,1
+what is the best strategy for learning to read sheet music,1
+should i use butter or oil for baking a standard cake,1
+whats the best way to get a toddler to sleep through the night,1
+is it worth taking vitamins every day for general health,1
+what is the recommended approach to asking for a raise,1
+should i focus on cardio or weightlifting for general fitness,1
+whats the best way to preserve fresh herbs,1
+is it better to stretch before or after a workout,1
+what is the universally recommended way to break bad habits,1
+should a first time dog owner get a puppy or an older dog,1
+whats the best way to remove a red wine stain,1
+is it worth investing in an index fund over picking individual stocks,1
+what is the best way to learn how to swim as an adult,1
+should i learn python or java as a first programming language,1
+whats the best method for organizing digital files and folders,1
+is it better to buy a used car or a new car for a first time driver,1
+what is the most effective way to learn vocabulary,1
+should i start investing while still paying off student loans,1
+whats the best way to cook a steak indoors,1
+is it generally a good idea to pay off a mortgage early,1
+what is the best strategy for winning at monopoly,1
+should a beginner photographer shoot in manual or auto mode,1
+whats the most recommended way to season a wok,1
+is it better to read the book before watching the movie adaptation,1
+what is the best way to improve posture while sitting at a desk,1
+should i brush my teeth before or after eating breakfast,1
+whats the best way to handle a toddler throwing a tantrum,1
+is it worth buying organic produce for everything,1
+what is the best method for brewing green tea without it getting bitter,1
+should i wash my jeans after every single wear,1
+whats the best way to negotiate a starting salary,1
+is it generally better to sleep with a fan on,1
+what is the best approach to writing a cover letter today,1
+as a first time manager what should I know about delegating tasks,1
+if someone wants to transition into project management where should they start,1
+for someone learning to bake what are the most important principles of yeast,1
+as a new parent what should i expect during the teething phase,1
+if a person wants to run a marathon how long does training typically take,1
+for a beginner in chess what are the basic opening principles,1
+as a fresh college grad what does a standard 401k match look like,1
+if someone is adopting a cat for the first time what supplies are strictly necessary,1
+for a person trying to build muscle what is the role of protein synthesis,1
+as an entry level data analyst what should i know about sql joins,1
+if someone wants to start a podcast what equipment is standard,1
+for a beginner gardener what are the easiest vegetables to grow,1
+as a first time homebuyer what exactly is closing cost,1
+if a person wants to learn woodworking what are the essential hand tools,1
+for someone traveling internationally for the first time how do customs work,1
+as a junior copywriter what makes a headline actually effective,1
+if someone wants to understand modern art what movements should they look at first,1
+for a novice investor what exactly is an etf,1
+as a new dog owner what are the core vaccines dogs need,1
+if a person wants to improve their credit score what are the main factors,1
+for someone learning about space what is the difference between a meteor and an asteroid,1
+as a first time backpacker what should a basic first aid kit contain,1
+if someone wants to write a novel what is the typical three act structure,1
+for a beginner at yoga what are the most common poses called,1
+as a new driver what should i know about hydroplaning,1
+if a person wants to learn piano what do the black keys actually do,1
+for someone starting a small business what is the difference between an llc and a sole proprietorship,1
+as a first time landlord what are the standard rules for security deposits,1
+if someone wants to understand world war 2 what were the main alliances,1
+for a beginner cook what is the difference between baking powder and baking soda,1
+as a new freelance writer how do standard net-30 payment terms work,1
+if a person wants to learn about philosophy who are the main ancient greek philosophers,1
+for someone building a pc what exactly does the motherboard do,1
+as a junior designer what is the difference between rgb and cmyk color modes,1
+if someone wants to understand economics what is the difference between micro and macro,1
+for a beginner in astronomy how do telescopes actually magnify things,1
+as a first time car buyer what is the difference between financing and leasing,1
+if a person wants to get into bird watching what are the best times of day to go,1
+for someone learning to knit what is the difference between the knit and purl stitch,1
+as an amateur photographer what exactly does the iso setting do,1
+wait so how does a microwave actually heat up food,1
+ok but what actually is the point of the appendix in the human body,1
+hang on whats the real difference between a virus and a bacteria,1
+so why does ice float in water instead of sinking,1
+wait why do we even have leap years in the calendar,1
+ok but how does a touchscreen actually know where my finger is,1
+hang on what exactly causes a rainbow to form,1
+so how does a submarine actually dive and surface,1
+wait why does the moon have phases if it just reflects the sun,1
+ok but what is the actual difference between weather and climate,1
+hang on why do leaves change color in the fall,1
+so how do magnets actually attract each other,1
+wait why do we yawn when we see other people yawn,1
+ok but what actually is inflation and why does it happen,1
+hang on whats the real difference between a hurricane and a typhoon,1
+so how does an airplane actually stay up in the sky,1
+wait why do we need sleep anyway,1
+ok but how do noise cancelling headphones actually block sound,1
+hang on what is the actual difference between a crocodile and an alligator,1
+so why does cutting an onion make you cry,1
+wait so how does bluetooth actually connect devices without wires,1
+ok but what actually is a black hole if it's not just an empty hole,1
+hang on whats the real difference between a psychologist and a psychiatrist,1
+so how do fireflies actually make their own light,1
+wait why does helium make your voice sound so high pitched,1
+ok but how does a barcode scanner actually read those lines,1
+hang on what exactly causes earthquakes to happen,1
+so why do cats purr when they are happy,1
+wait so how does a compass always know which way is north,1
+ok but what actually is a calorie in terms of food energy,1
+hang on whats the real difference between baking and roasting,1
+so how do solar panels actually turn sunlight into electricity,1
+wait why do some people have dimples and others dont,1
+ok but how does a lie detector test actually work,1
+hang on what exactly is the ozone layer and what does it do,1
+so why do we have different blood types in the first place,1
+wait so how does a refrigerator actually keep things cold inside,1
+ok but what actually is cryptocurrency and how is it made,1
+hang on whats the real difference between a stalactite and a stalagmite,1
+so how do 3d glasses actually make the movie look 3d,1
+what did you mean by that,0
+explain that again,0
+wait what was the last one,0
+elaborate on the second point,0
+why did you suggest that,0
+can you break that down further,0
+what is it exactly,0
+show me more like this,0
+i dont understand this part,0
+give me more details on the first option,0
+who said that,0
+when did that happen,0
+how does that work though,0
+why is it like that,0
+tell me more about her,0
+what was his reasoning for that,0
+can you rephrase that last sentence,0
+what are those made of,0
+how much would this cost me,0
+is that actually true,0
+i prefer the third one,0
+let's go with the former,0
+what about the latter,0
+which of those is better,0
+compare those two,0
+can we go back to the first point,0
+what was that acronym again,0
+explain it to me like im 5,0
+why are they doing that,0
+give me the source for that,0
+tell me more about this approach,0
+how long does that take,0
+what if i dont want to do that,0
+skip that part,0
+what does that look like,0
+give me a concrete example of that,0
+where did you find that,0
+is this a common issue,0
+how can i fix this,0
+what causes that,0
+how do i use it,0
+when should i apply this,0
+is that safe,0
+wait go back to what you just said,0
+what does the first one mean,0
+i want to learn more about the last topic,0
+why do you recommend that one,0
+how old is he,0
+are those available here,0
+can you give me more context on that,0
+make it shorter,0
+expand on this please,0
+now rewrite it for a 5th grader,0
+translate to spanish,0
+put that into a bulleted list,0
+turn this into a table,0
+can you make it sound more professional,0
+generate three more examples,0
+keep going,0
+tell me more,0
+continue,0
+what happens next,0
+write an email using those points,0
+now do the same thing but for python,0
+give me a java version,0
+add more detail,0
+summarize the whole thing,0
+make it funnier,0
+rewrite it without the jargon,0
+make it longer and more detailed,0
+give me another one,0
+can you provide one more,0
+give me a totally different example,0
+what else is there,0
+anything else i should know,0
+add some jokes to it,0
+change the tone to be more casual,0
+cut out the fluff,0
+write it as a tweet,0
+format it as a markdown table,0
+convert that to json,0
+now explain it in reverse,0
+add citations,0
+give me the step by step instructions,0
+write the code for it,0
+show me the command line version,0
+give me the api payload for this,0
+write a test case for it,0
+add comments to the code,0
+optimize it for performance,0
+make it work for windows,0
+how would a beginner do it,0
+write a short intro for this,0
+make the ending stronger,0
+give me a checklist based on this,0
+now tell me the opposite,0
+give me a real world scenario,0
+add a bibliography,0
+write a bash script for it,0
+do it again but better,0
+what are the downsides,0
+is there a simpler way,0
+how about performance,0
+would it work for large datasets,0
+any alternatives worth considering,0
+what are the pros and cons,0
+how long would setup take,0
+is there a free version,0
+what happens if the server crashes,0
+what are the security risks,0
+is the installation difficult,0
+will this scale,0
+what are the prerequisites,0
+do i need any special hardware,0
+what if the user has a mac,0
+are there any side effects,0
+what are the long term consequences,0
+is there an open source alternative,0
+how does it compare to the industry standard,0
+what are the edge cases,0
+is there a faster way to do it,0
+how much overhead does it add,0
+what is the worst case scenario,0
+will it break existing code,0
+what are the system requirements,0
+how do i troubleshoot errors,0
+is there a gui for it,0
+what if my internet goes down,0
+are there hidden fees,0
+what is the success rate,0
+can it run offline,0
+how do you test it,0
+what is the maintenance like,0
+how steep is the learning curve,0
+what is the community support like,0
+does it require a license,0
+how often is it updated,0
+what are the common pitfalls,0
+how do i deploy it,0
+what is the latency like,0
+is it backward compatible,0
+what is the carbon footprint,0
+can it be automated,0
+how do you handle migrations,0
+what are the best practices,0
+are there any known bugs,0
+what is the expected lifespan,0
+how do you secure it,0
+what are the storage requirements,0
+does it support multiple languages,0
+are you sure about that,0
+that doesnt seem right to me,0
+wait i thought it worked differently,0
+but earlier you said something else,0
+can you double check that answer,0
+is that actually correct,0
+check your math,0
+i dont think thats true,0
+that contradicts your previous point,0
+hold on that makes no sense,0
+are you absolutely certain,0
+wait a minute,0
+what do you mean by that,0
+i'm confused,0
+that cant be right,0
+aren't you forgetting something,0
+what about the other rule,0
+i read somewhere else that it was different,0
+that feels like a hallucination,0
+wait let me clarify,0
+you misunderstood my question,0
+no thats not what i meant,0
+im asking something else,0
+try again,0
+you didn't answer my question,0
+why are you assuming that,0
+that logic is flawed,0
+where did you get that information,0
+you skipped the most important part,0
+wait slow down,0
+i completely disagree,0
+that's a terrible idea,0
+why would anyone do it that way,0
+are you just guessing,0
+that seems way too complicated,0
+isn't there an easier explanation,0
+you just contradicted yourself,0
+hold up did you mean to say yes,0
+that doesn't answer the prompt,0
+what are you talking about,0
+i feel like you missed the point,0
+that advice is outdated,0
+are you sure the syntax is correct,0
+the code you gave me throws an error,0
+why did you completely change the subject,0
+isn't that illegal though,0
+that doesn't sound safe,0
+i seriously doubt that,0
+wait huh,0
+im lost,0
+"i've been a high school math teacher for 8 years and want to transition to data analysis, how should I structure my resume",0
+"got an offer from amazon but I hear the wlb is terrible, im currently at a chill mid size company making 20% less, what should I do",0
+"i have a 3 year employment gap due to a severe illness, how do I explain this in interviews without sounding like a liability",0
+"my manager promised me a promotion last cycle but didn't deliver, should I look for a new job or wait another 6 months",0
+"im a staff engineer but I hate managing people, my company forces staff to do 50% people management, should I demote myself to senior",0
+"i just got laid off and have an H1B visa with 60 days to find a job, what is the fastest way to get interviews right now",0
+"i have an offer for 120k in NYC and 95k in Chicago, which one will give me a better standard of living as a single person",0
+"I am a self taught frontend dev with 1 YOE, am I ready to apply for full stack roles or should I wait",0
+"i've been at the same defense contractor for 15 years and want to move to big tech, am I too old/outdated for them to consider me",0
+"my startup just got acquired and my equity is worth about 500k, should I stay for the 2 year vest or leave because I hate the acquiring company",0
+"i got fired for performance 2 months ago, do I tell my next employer the truth or just say it was a layoff",0
+"i am an introverted product manager and struggle to command the room during all hands meetings, what specific tactics can I use",0
+"im a nurse practitioner burnt out from bedside care, what are some remote non-clinical roles I can pivot to with my degree",0
+"i work in marketing but my company wants me to take over the sales team, I have zero sales experience, is this a trap",0
+"i just graduated with a mechanical engineering degree but realized I want to do software, how do I pivot without going back to school",0
+"my current TC is 150k, I just got an offer for 160k but much worse benefits, how do I leverage this to get a raise at my current job",0
+"i am a freelance graphic designer making around 60k, should I take a full time agency job for 80k even if it means losing my flexibility",0
+"i passed the technical screen but they said they want someone with more system design experience, how do I counter this",0
+"im the only woman on a 15 person engineering team and feel constantly talked over, how should I bring this up to my male manager",0
+"i have 5 years of QA automation experience but want to be a core backend dev, will companies downlevel me if I switch",0
+"my company is forcing RTO 5 days a week but I moved 2 hours away during covid, what are my options",0
+"im an L5 at aws and my manager just put me on a pivot plan, should I try to survive it or just spend all my time interviewing",0
+"i've been doing IT support for 4 years and have my compTIA trio, what is the exact next step to get a cybersecurity analyst role",0
+"my cofounder and I are splitting up, I wrote 90% of the code but he has all the business contacts, how should we value my buyout",0
+"i want to ask for a 20% raise because I took on the work of a coworker who quit, how exactly do I frame this conversation tomorrow",0
+"im a barista right now but im doing the google data analytics cert, is this actually enough to get an entry level job in this market",0
+"i have an offer for a contract to hire role, I currently have a full time job that is toxic, is the risk of contract worth it",0
+"i am a technical writer but AI is making me nervous about job security, what adjacent field should I pivot to",0
+"i am based in india working for a US startup, they pay me in INR but I want to negotiate being paid in USD, how do I approach this",0
+"i have a criminal record from a misdemeanor 7 years ago, how do I navigate background checks for banking tech roles",0
+"i got promoted to engineering manager but I miss coding, it's been 1 year, is it a bad look to ask to go back to IC",0
+"im a chef who works 70 hours a week, I want to learn to code but have zero energy, what is a realistic timeline for me to escape this industry",0
+"i have two offers, one is a seed stage startup with massive equity and the other is a slow moving bank with a huge base salary, im 25 with no debt, what do i choose",0
+"my boss is leaving and recommended me to take over the department, but the director wants to hire externally, how do I prove im ready",0
+"i am a social media manager for a b2b company and hate it, can I use this experience to get into PR or corporate comms",0
+"i just had a baby and am returning from maternity leave, I want to ask to go down to 4 days a week, how do I negotiate this",0
+"i have 10 years of experience in oil and gas engineering but want to move to renewables, will I have to take a pay cut",0
+"my coworker makes 30% more than me for the exact same role and I just found out, how do I bring this up to HR without getting them in trouble",0
+"im a UX researcher but my company is cutting our whole department, can I easily pivot to UX design or do I need a portfolio from scratch",0
+"i want to quit my job to travel for a year, I have 100k saved but im terrified it will ruin my career trajectory as a mid level dev, will it",0
+"i am currently a paralegal wanting to go to law school, but im 32 and it would mean 150k in debt, is the ROI worth it at my age",0
+"i got a return offer from my internship but I didn't love the team, should I accept it as a backup while I recruit for other places",0
+"i've been at my first job for 6 months and it's completely disorganized and I'm learning nothing, is it too early to jump ship",0
+"im a classical musician whose orchestra went bankrupt, what corporate jobs value my specific skillset",0
+"i am a senior devops engineer but I want to become a technical sales engineer, how do I convince recruiters I have the soft skills",0
+"i just got a pip warning today, my manager says it's informal right now but I don't trust him, what exactly should I do tonight",0
+"i have a biology degree but no lab experience, only retail, how do I get my first entry level lab tech job",0
+"im an executive assistant to a CEO and do half of his ops work, how do I transition my title to Chief of Staff",0
+"i got rejected after a 7 round interview process, they said culture fit, should I ask for specific feedback or just move on",0
+"i'm 45 and a mid-level QA manual tester, my company is automating everything, what is the easiest automation tool for me to learn fast to keep my job",0
+"i know basic html and css, what should I learn next to build a full stack ecommerce site for my wife's business",0
+"I have 3 weeks until my amazon SDE2 loop and I haven't done leetcode in 4 years, what topics should I prioritize",0
+"im terrible at math, barely passed algebra, can I still become a frontend developer or does it require heavy math",0
+"i am a native spanish speaker learning english, I struggle specifically with professional email etiquette, what are the rules I need to know",0
+"i have adhd and cannot watch long video tutorials, how should I approach learning react from scratch",0
+"im a project manager trying to learn SQL to pull my own reports, what is the minimum I need to learn to just query a postgres database",0
+"i want to learn 3d modeling for 3d printing miniatures, should I start with blender or fusion 360 given I have no design background",0
+"i have 6 months of runway to learn game dev and launch an indie game, I know C#, should I use unity or godot right now",0
+"i am 50 years old and have never used a computer for more than email, where do I start if I want to learn how to use excel for budgeting",0
+"i already know java and spring boot very well, what is the quickest way for me to pick up go for a new job requirement",0
+"i want to learn Mandarin but only care about speaking it with my in-laws, not reading or writing, what is the best approach",0
+"i have dyslexia and struggle to read heavy documentation, what is the most visual way to learn AWS cloud architecture",0
+"i am a classical pianist wanting to learn jazz improvisation, I know all my scales but get paralyzed without sheet music, how do I break this",0
+"i want to get into bug bounty hunting, I know basic networking and linux but no programming, what should my first 3 months look like",0
+"i have a long commute, 2 hours a day, what are the best audio only resources to learn the concepts of system design without looking at a screen",0
+"im a mechanic wanting to restore a 1960s mustang, I know modern engines but nothing about carburetors, where do I start learning",0
+"i want to learn photography but only have a google pixel 7, not a dslr, can I still learn the fundamentals of composition and lighting",0
+"i know intermediate python and pandas, how do I make the jump to actually deploying machine learning models in production",0
+"i have terrible flexibility but want to learn to do the splits for martial arts, im 30, is a 6 month timeline realistic if I stretch daily",0
+"i am trying to learn guitar but my hands are very small and I can't do barre chords, are there alternative voicings I should learn instead",0
+"I want to build an iOS app but I only have a windows PC, what is the best framework for me to learn right now",0
+"i am an accountant trying to automate my data entry, should I learn VBA for excel or python",0
+"i have 1 week to prepare for the AWS solutions architect associate exam, I took a practice test and got 40%, how do I cram for this",0
+"i want to get into ethical hacking but I only have a macbook air with 8gb ram, can I run the necessary VMs on this machine",0
+"i am a visual learner and want to understand how docker works under the hood, I don't want just the commands, how should I learn this",0
+"i know ruby on rails but the market is dead in my city, what backend framework is the easiest pivot for a rails dev",0
+"i am trying to learn chess but I keep getting stuck at 800 elo, I only study openings, what should I actually be studying",0
+"i want to learn how to day trade crypto but I work a full time job from 9 to 5 est, what markets or strategies fit my schedule",0
+"i have dyscalculia but want to learn to knit, following complex stitch counts is impossible for me, what types of projects should I start with",0
+"i am a senior high school student who wants to self study for the AP physics C exam, my school doesn't offer it, what textbook is best for self teaching",0
+"i want to learn digital painting, I have an ipad and procreate but no drawing experience, should I learn traditional drawing first",0
+"i know react native but I want to build a high performance graphics app, should I learn swift or c++",0
+"i have 2 months before a trip to japan, I want to learn enough japanese to order food and ask for directions, what is the most efficient method",0
+"i am a backend dev trying to learn css, I understand flexbox but css grid completely confuses me, how do I mentally model grid",0
+"i want to learn video editing for youtube, I have a decent gaming pc but zero budget for software, what should I learn",0
+"i am trying to run a sub 20 minute 5k, my current PR is 23 mins and I only have 3 days a week to train, what should my workouts be",0
+"i know how to sew basic garments but I want to learn pattern drafting, I am terrible at math, is there a visual method to drafting",0
+"i want to learn public speaking but I have a severe stutter when I get nervous, what techniques can help me specifically",0
+"i am a frontend developer who wants to understand Web3 and smart contracts, I know JS, should I learn Solidity or Rust first",0
+"i want to learn how to fix my own bicycle, I have zero mechanical intuition and only basic tools, what is the most forgiving repair to start with",0
+"i am learning korean but struggle immensely with pronunciation of the double consonants, how can an english speaker master these",0
+"i want to learn UI design but I have zero artistic ability, can I still be a good designer by just following rules and systems",0
+"i am a doctor wanting to learn health informatics, do I need to learn how to code or just understand the database structures",0
+"i have 1 month to learn enough sign language to communicate with my new deaf coworker, what vocabulary should I prioritize",0
+"i want to learn ethical hacking but I have a history of doing black hat stuff when I was a teenager, will this prevent me from getting a job",0
+"i am a heavy guy trying to learn how to skateboard, what type of board should I get that won't snap under my weight",0
+"i know basic statistics but want to understand the math behind neural networks, what specific linear algebra topics do I need",0
+"i am a stay at home mom wanting to learn copywriting while my kid naps, what is the fastest path to getting my first paid client",0
+"i want to learn to DJ but I mostly listen to heavy metal and classic rock, not EDM, what equipment makes sense for me",0
+"i am trying to learn to swim as an adult, I have a deep phobia of putting my face in the water, how do I overcome this first step",0
+"i have 50k in savings and 30k in student loans at 6%, should I pay off the loans immediately or invest the savings",0
+"my fiance wants a 15k wedding but I'd rather elope and use the money for a house downpayment in california, how do we compromise",0
+"i am choosing between a macbook pro m3 pro and a lenovo thinkpad p16 for my computer science degree, I want to do some gaming on the side, which one",0
+"i hate my current job but the pay is 200k, my other offer is 130k for a job I would love, im 28 with a mortgage, what should I do",0
+"should I do a coding bootcamp for 15k or a WGU online CS degree for about the same price, I already have a BA in history",0
+"my husband got a job offer in London and I work remotely in the US, is it worth the tax nightmare for us to move for 2 years",0
+"i am building a saas for local plumbers, should I use stripe for payments or paddle, considering I want to handle taxes easily",0
+"i have a 2010 honda civic with 150k miles that needs a 2k transmission repair, should I fix it or just buy a new used car in this market",0
+"im deciding between getting a dog or a cat, I work 10 hours a day and live in an apartment, but I really want a companion that will cuddle",0
+"should I buy a condo in a tier 1 city or a single family home in the suburbs, I am single and hate yard work but want property value appreciation",0
+"i have 5 days for a vacation in november, im flying out of NYC and want warm weather but hate crowded resorts, where should I go",0
+"i am trying to pick a health insurance plan, I have type 1 diabetes and need expensive insulin every month, should I do the high deductible or the platinum PPO",0
+"i want to buy a 3d printer for under $300, I just want it to work out of the box without tinkering, bambu lab a1 mini or something else",0
+should I break up with my girlfriend of 4 years if she wants kids in the next 2 years and I'm still not sure if I ever want them,0
+"i am choosing between AWS and GCP for a machine learning side project, I have zero cloud experience and a budget of $50 a month",0
+"i want to start a youtube channel about mechanical keyboards, should I invest $1000 in camera gear or just use my iphone 15 pro",0
+"i have an offer for a PM role at Microsoft and a PM role at a Series B AI startup, I want to start my own company in 5 years, which sets me up better",0
+"should I pay $2000 for a resume writer and career coach, I've been applying for 6 months with zero interviews for senior UX roles",0
+"my parents want to give me 20k for a house downpayment but they are very controlling and will want a key, is the money worth the strings attached",0
+"i am trying to pick a project management tool for my 3 person design agency, we tried jira and it was too complex, notion or asana",0
+"should I take a gap year before college if I have no idea what I want to major in, my parents are willing to let me live at home",0
+"i want to invest in real estate but I only have 10k, should I look into REITs or try to do out of state wholesaling",0
+"i am picking a frontend framework for a highly interactive data dashboard, my team only knows vanilla JS, react or svelte",0
+"should I get the sony a7iv or the fujifilm x-t5 for street photography, I care more about the colors straight out of camera than video specs",0
+"i am an introverted guy trying to start online dating, is hinge or bumble better for someone looking for a serious relationship in their 30s",0
+"my lease is up in 2 months, should I renew at a 15% increase or move to a cheaper apartment that adds 30 minutes to my commute",0
+"i am building a mobile app that needs to be on iOS and Android, I hate javascript, should I use flutter or kotlin multiplatform",0
+"should I buy whole life insurance, my financial advisor is pushing it hard but I keep reading that term life is better for a 30 year old",0
+"i want to start a side hustle selling digital planners, should I use etsy which takes a huge cut or shopify where I have to drive my own traffic",0
+"i am trying to pick a database for a social media app that will have heavy read loads and a graph-like structure, neo4j or postgres",0
+"should I go to my high school reunion if I was bullied heavily but now I am highly successful and want to show off, or is it a bad idea",0
+"i have $500 to spend on a home office chair, I have lower back pain and sit for 10 hours a day, used herman miller aeron or a new steelcase series 1",0
+"i am deciding between the pixel 8 pro and the galaxy s24 ultra, I care most about the camera for taking pictures of my fast moving toddler",0
+"should I put my 2 year old in full time daycare for $2k a month or have my retired mother in law watch him for free, she ignores our parenting rules",0
+"i am building a personal blog, I want maximum customization but don't want to manage servers, nextjs with vercel or ghost",0
+"should I finance a $40k car at 7% interest if I make $120k a year, I can afford the payment but I know it's a depreciating asset",0
+"my friend asked me to co-sign a lease for her, she has terrible credit but a good job, we've been friends for 10 years, should I do it",0
+"i am trying to choose a workout program, I want to build muscle but I only have dumbells up to 50lbs at home, no barbell",0
+"should I take a 10k paycut to switch from a toxic boss to a new team within the same company, or just leave the company entirely",0
+"i am building an API that needs to handle 10k requests per second, I know python but fear it's too slow, should I write it in go instead",0
+"should I tell my current boss that I am interviewing, we have a great relationship and I need a reference from him for the new job",0
+"i am trying to pick a mattress, I am a side sleeper with shoulder pain and my partner is a back sleeper who runs hot, what type of bed works for both",0
+"should I do a masters in computer science if my bachelor's is in biology and I want to be a software engineer, or just do a post-bacc",0
+"i have $5000 to invest in myself this year, should I use it to go to an industry conference or hire a private tutor for technical interviews",0
+"i am choosing a location for a bachelor party of 8 guys, half of them don't drink but love outdoors, the other half want nightlife, where do we go",0
+"should I buy the DJI mini 4 pro or the air 3, I want to take it on hikes so weight matters but I live in a very windy area",0
+"i want to start a podcast, I have a deep bass voice and a very echoey room, should I get the shure sm7b or a condenser mic",0
+"i am deciding between buying a townhouse with an HOA or a standalone house that needs a new roof, both are the same price",0
+"should I use my 10k bonus to pay off my 0% interest credit card debt early, or put it in a high yield savings account until the promo period ends",0
+"i am a vegetarian trying to hit 150g of protein a day without dairy, I hate the texture of tofu, what powder or supplement should I buy",0
+"my team is split between using graphql and rest for our new microservices, I am the lead, how do I make the final call without alienating half the team",0
+"I am the only developer at a non-tech startup, my CEO wants me to build an AI chatbot by next week, how do I explain this is impossible",0
+"my manager keeps rejecting my PRs for stylistic choices that aren't in our linter, it's doubling my dev time, how should I handle this",0
+"we are a team of 3 engineers with no QA, we push bugs to prod constantly, what is the most lightweight testing strategy we can implement today",0
+"i inherited a monolithic django app with no documentation and the original devs all quit, where do I even start to understand the architecture",0
+"my coworker refuses to write unit tests and my boss doesn't care, but I am the one who has to fix his bugs on weekends, what do I do",0
+"i am building a scraping tool for my side hustle and the target site just implemented cloudflare bot protection, how do I ethically bypass this",0
+"our startup database is growing by 50gb a month and queries are slowing down, we use postgres on RDS, do we need to shard or just scale up",0
+"my designer hands off figma files that are beautiful but mathematically impossible to build in css grid, how do I communicate technical constraints to him",0
+"i have been assigned to mentor a junior dev who literally copies and pastes from chatgpt without understanding the code, how do I correct this behavior",0
+"our aws bill just spiked from 1k to 5k this month and I can't figure out why, what tools do I use to track down the rogue resources",0
+"my tech lead is a massive bottleneck, he insists on reviewing every single PR but takes 4 days to do it, how do I bring this up to his manager",0
+"i am trying to integrate stripe subscriptions into my nextjs app but the webhooks keep failing in local development, what is the best way to test this",0
+"our company uses a 10 year old on prem SVN server, how do I write a business case to convince the CTO to migrate us to github",0
+"my product manager keeps changing the sprint scope mid-sprint, our velocity is tanking and she blames engineering, how do we stop this",0
+"i am building a real time chat app with socket.io, it works great with 10 users but how do I architect it to handle 10,000 concurrent connections",0
+"my senior developer is incredibly smart but very condescending in code reviews, making me dread submitting code, how do I address his tone",0
+"our frontend is built in angular but the company wants to rewrite it in react, is a gradual migration using micro frontends a good idea or a nightmare",0
+"i accidentally dropped the production database this morning, I restored from a backup but we lost 1 hour of data, how do I write the post mortem for this",0
+"my team uses agile but our daily standups take 45 minutes because people start problem solving, how do I politely force them to keep it short",0
+"i am developing a react native app and the android build works fine but the ios build crashes on startup with zero error logs, how do I debug this",0
+"our marketing site is built on wordpress and is incredibly slow, my boss wants to rewrite it but marketing insists on keeping the wp admin panel, solutions?",0
+"my coworker has terrible hygiene and it makes working in our open office unbearable, hr is non-existent here, how do I handle this",0
+"i am trying to build a custom authentication system from scratch because my boss refuses to pay for auth0 or clerk, what security pitfalls must I avoid",0
+"our database schema is a mess with 100+ tables and no foreign keys, what is the safest way to start adding constraints to a live production database",0
+"my offshore team is in a 12 hour timezone difference, we only have 30 mins of overlap a day and they are constantly blocked, how do we improve async communication",0
+"i am building a web scraper that needs to run daily, should I deploy it on a cron job on an ec2 instance or use something like aws lambda",0
+"our QA team takes 2 weeks to manually test every release, how do I convince leadership we need to invest in cypress for e2e automation",0
+"my direct report is going through a messy divorce and their performance has tanked for 3 months, I have empathy but my boss is demanding I pip them, what do I do",0
+"i am trying to containerize a legacy spring boot app but it requires hardcoded file paths on the host machine, how do I dockerize this without rewriting the app",0
+"my company was just acquired and the new CTO wants us to switch from AWS to Azure in 6 months, we have 50 microservices, is this timeline even possible",0
+"i am building an inventory management system for a warehouse, they have terrible wifi, how do I architect the web app to work entirely offline and sync later",0
+"my coworker keeps pinging me on slack with just 'hello' and waiting for me to respond before asking his question, how do I train him to just ask the question",0
+"we have a memory leak in our nodejs backend that only happens in production under heavy load, I can't reproduce it locally, how do I profile this",0
+"my project manager uses our 1 on 1s to vent about her own boss instead of discussing my career growth, how do I redirect the conversation",0
+"i am building a multi-tenant saas, should I use row-level security in a single database or give every tenant their own database",0
+"our devops engineer left and now I am the defacto infrastructure guy, I have no idea how our kubernetes cluster works, what should I check first to ensure we don't go down",0
+"my co-developer on a college project refuses to use version control and just emails me zip files of the code, how do I force him to use git",0
+"we are building a video streaming app and the AWS data transfer costs are killing us, how do we architect this to use a CDN more effectively",0
+"my boss wants me to install tracking software on my personal laptop for my remote job, I am an independent contractor, can I legally refuse this",0
+"i am using tailwind css but my html files are becoming completely unreadable due to the long class names, how do I structure this better in a react project",0
+"our team has unlimited PTO but nobody takes it because the culture is toxic, I want to take 3 weeks off for my honeymoon, how do I handle the pushback",0
+"i am building a search feature for an ecommerce site, should I use elasticsearch or is postgres full text search good enough for 100k products",0
+"my junior dev accidentally committed API keys to a public github repo, I revoked them but how do we completely scrub the git history",0
+"our company is enforcing a stack ranking system and I have to rate one of my 5 excellent engineers as 'below expectations', how do I handle this ethically",0
+"i am trying to implement oauth2 login with google but the redirect uri keeps throwing a mismatch error only on production, what could be causing this",0
+"my coworker is clearly overemployed and working another full time job, he misses meetings constantly, should I report him or mind my own business",0
+"we have a monolith frontend that takes 15 minutes to build on github actions, what are the best strategies to cache node_modules and speed this up",0
+"my boss expects me to be on call 24/7 without extra pay, I am a salaried exempt employee in california, is this legal and how do I push back",0
+"i am building a chrome extension that needs to inject content into existing pages, but strict CSPs keep blocking my scripts, how do I architect around this",0
+why is my function returning None instead of the expected value,0
+can you find the bug in the code above,0
+whats wrong with this SQL query,0
+is there a more efficient way to write this loop,0
+why am I getting this error when I run the script,0
+refactor this python class to use dataclasses,0
+"my react component is rendering twice, look at this file and tell me why",0
+fix the memory leak in the c++ code i just pasted,0
+why is this regex not matching the phone numbers in my test cases,0
+how do i optimize this nested for loop,0
+can u make this script pythonic,0
+what is causing a segfault in this snippet,0
+check this bash script for any security vulnerabilities,0
+why doesn't this css grid layout center my div,0
+convert this class component into a functional one with hooks,0
+is this rust code idiomatic,0
+find the syntax error in this json,0
+my api call keeps timing out with this setup,0
+why is this query taking 30 seconds to run,0
+can you add comments explaining what this regex does,0
+rewrite this java method in kotlin,0
+im getting a typeerror here what did i do wrong,0
+how do i make this typescript interface strictly typed,0
+why is my swiftui view not updating when the state changes here,0
+help me parallelize this python script using asyncio,0
+are there any race conditions in this go routine,0
+tell me why this unit test is failing,0
+what happens if i pass an empty array to this function,0
+can you write a test block for the function above,0
+make this html accessible for screen readers,0
+why does this python code throw an indentation error,0
+can you minify this js code for me,0
+how would you improve the error handling in this module,0
+find the infinite loop in this block,0
+why is the borrow checker mad at this rust code,0
+is this smart contract vulnerable to reentrancy attacks,0
+format this sql so it's actually readable,0
+why is pandas throwing a settingwithcopywarning on this dataframe operation,0
+does this ternary operator make sense here,0
+how can i mock the database call in this jest test,0
+"my flexbox layout breaks on mobile, see attached css",0
+what's the time complexity of this sorting algorithm i wrote,0
+is it safe to ignore this warning from the compiler,0
+why is this python list comprehension so slow,0
+change this promise chain to async await,0
+add a try catch block to this fetching function,0
+"my unittests pass but integration tests fail on this endpoint, what gives",0
+why does this dockerfile take 10 minutes to build,0
+is this regex susceptible to catastrophic backtracking,0
+fix the off by one error in this array iteration,0
+can you proofread what I just wrote,0
+is my essay argument clear and convincing,0
+summarize the document I uploaded,0
+make this email sound more professional,0
+does my cover letter effectively highlight my strengths,0
+translate this paragraph into French,0
+rewrite my resume bullet points to sound more impactful,0
+can you shorten this paragraph to under 50 words,0
+does this introduction sound too academic,0
+check this blog post for grammar and flow,0
+extract all the action items from this meeting transcript,0
+make this apology email to my boss less defensive,0
+is the tone of this slack message passive aggressive,0
+generate a catchy title for this article,0
+summarize the main findings of this research paper,0
+turn this rough draft into a polished linkedin post,0
+does this thesis statement make sense,0
+rephrase this sentence so it's less clunky,0
+format these notes into a clean markdown table,0
+check my english translation of this spanish poem,0
+how can i make this product description more persuasive,0
+what are the weak points in my debate opening statement,0
+is this legal clause too vague,0
+help me cut the fluff from this executive summary,0
+make this technical doc understandable for non-engineers,0
+does this landing page copy convey urgency,0
+write a tldr for this wall of text,0
+can u fix the punctuation in my text message,0
+does my dating app bio sound desperate,0
+change the perspective of this story from 1st to 3rd person,0
+what is the main theme of the poem i pasted,0
+can you make this rejection letter more empathetic,0
+are there any contradictory statements in this policy draft,0
+does this performance review feedback sound constructive or mean,0
+give me feedback on the pacing of this script,0
+make this sales pitch more conversational,0
+translate this french menu into english,0
+how can i improve the transition between these two paragraphs,0
+does this grant proposal clearly state the problem,0
+format this text into apa citation style,0
+rewrite this email as if a pirate wrote it,0
+can you highlight the bias in this news article draft,0
+is this a strong conclusion for my history paper,0
+make this user manual step easier to follow,0
+how does this chapter ending build suspense,0
+can you pull out the key stats from this press release,0
+does my personal statement sound authentic,0
+check if i overused the word 'leverage' in this doc,0
+is this newsletter subject line clickbaity enough,0
+proofread this presentation slide text,0
+what does this error message mean in context of my setup,0
+look at these test results and tell me what is failing and why,0
+is this database schema well normalized,0
+what patterns do you see in this dataset,0
+review my system architecture diagram and point out weaknesses,0
+why is my webpack build failing with this output,0
+parse this json payload and tell me if it matches the schema,0
+what does this stack trace tell me about the crash,0
+is there a correlation between column A and column B in this csv,0
+what are the outliers in this array of numbers,0
+can you interpret this git merge conflict message,0
+what is causing the bottlenecks in this flame graph output,0
+does this er diagram correctly map the many to many relationship,0
+look at my prometheus metrics and tell me why cpu is spiking,0
+extract the ip addresses from this apache log file,0
+why did my github actions workflow fail here,0
+what does this kernel panic dump mean,0
+summarize the demographics from this survey data spreadsheet,0
+are there missing values in this dataframe output,0
+does this network topology diagram look secure,0
+why is npm install throwing these peer dependency warnings,0
+can you explain the execution plan of this sql query,0
+what insights can you draw from this sales chart,0
+is my terraform plan going to destroy any existing resources,0
+what does this google lighthouse report say about my site performance,0
+why is my ios app crashing according to this crashlytics log,0
+does this ui wireframe follow material design guidelines,0
+what is the most frequent word in this word cloud data,0
+can you tell me if this nginx config is routing traffic correctly,0
+what does this out of memory exception mean in this context,0
+look at this payload and tell me why the api rejected it with a 400,0
+why is my python script hanging based on this thread dump,0
+what are the key takeaways from this a/b test result table,0
+does this kubernetes yaml file expose the pod externally,0
+why is this valgrind output showing memory leaks,0
+what is the p-value in this regression output telling me,0
+is this a valid jwt based on the decoded payload,0
+what does this compiler warning actually mean,0
+look at this tcpdump output and tell me if packets are dropping,0
+does this flow chart logically cover all edge cases,0
+why did my docker compose up command fail with this error,0
+can you read this minidump and find the exception code,0
+what does this strace output say about file permissions,0
+are there any anomalies in this time series data,0
+what is wrong with my babel config according to this error,0
+does this sequence diagram accurately represent the oauth flow,0
+why is jest skipping all these tests in the terminal output,0
+what does this browser console error mean for my react app,0
+can you parse this xml file and find the missing closing tag,0
+what is the root cause of the failure in this jenkins console output,0
+i just feel so empty lately and i don't even know why,0
+i got passed over for a promotion again and i honestly feel like giving up on my career,0
+"is it normal to cry for no reason at all, im just sitting here and tearing up",0
+"im terrified of failing this exam, my whole future depends on it and i cant sleep",0
+why do i always self sabotage when things start going well for me,0
+i feel like an imposter every single day at work and im just waiting to get fired,0
+im so exhausted from pretending to be okay when im completely falling apart inside,0
+i just moved to a new city and i have never felt more isolated in my entire life,0
+"i regret my major so much but im already in my senior year, i feel trapped",0
+does the grief ever actually go away or do you just get used to it,0
+i keep comparing myself to people on linkedin and it is destroying my self esteem,0
+i feel like im wasting my twenties,0
+"my anxiety is paralyzing me today and i have so much work to do, how do i just start",0
+i feel so guilty for taking a sick day when im not physically sick but my mental health is in the gutter,0
+why do i feel so much shame about asking for help,0
+"im in my 30s and still dont know what i want to do with my life, everyone else has it figured out",0
+"i just got rejected from my dream job after 5 rounds of interviews, i am crushed",0
+i feel like im constantly disappointing the people who believe in me,0
+everything feels so overwhelming right now and i cant process a single thought,0
+"i just want to pause my life for a month and sleep, is that burnout?",0
+im really scared of the future right now,0
+"i cant stop obsessing over a mistake i made three years ago, how do i let it go",0
+"i feel completely numb, even things i used to love doing feel like a chore",0
+is it weird that i dread the weekends because it means i have to sit with my own thoughts,0
+i just turned 40 and im having a massive existential crisis about my legacy,0
+why is it so hard for me to just be happy with what i have,0
+"im deeply deeply unhappy in my career but the golden handcuffs are real, what do i do",0
+i feel like i have lost my spark and i dont know how to get it back,0
+my confidence is at an all time low right now,0
+im so overwhelmed by the state of the world that i cant even focus on my daily life,0
+"i feel like a terrible parent today, i just lost my patience so quickly",0
+i constantly feel like i am running out of time,0
+i am so deeply unmotivated today it physically hurts to send an email,0
+how do you find hope when everything feels pointless,0
+im worried im never going to figure out who i actually am,0
+my best friend hasn't texted me back in a week and i keep wondering what i did wrong,0
+my coworker constantly interrupts me in meetings and i dont know how to stand up for myself without looking aggressive,0
+i think my partner is falling out of love with me and im terrified to bring it up,0
+how do i set a boundary with my mom without her making me feel insanely guilty about it,0
+"my roommate keeps eating my food and laughs it off when i get annoyed, what should i do",0
+"i have a crush on my married boss and i feel disgusting about it, how do i get over this",0
+my sibling just asked me for a huge loan and i dont trust them to pay it back but i feel bad saying no,0
+im dreading going home for the holidays because my family always picks on my weight,0
+i realized i dont actually like my friend group anymore but i have no one else to hang out with,0
+my boyfriend and i have wildly different political views and it's starting to cause real friction,0
+i accidentally overheard my colleagues gossiping about me and now i have to go sit next to them,0
+my manager is super passive aggressive and i am constantly walking on eggshells,0
+how do i tell my best friend that her boyfriend hit on me,0
+"i feel like im the only one putting effort into this friendship, should i just stop trying",0
+"my partner wants kids and i am 99 percent sure i dont, is it time to break up",0
+im so jealous of my sister's success that it is ruining our relationship and i hate myself for it,0
+how do i apologize to someone when i know my apology wont fix the damage i did,0
+my friend always trauma dumps on me without asking if i have the emotional capacity for it,0
+"i think my direct report is lying to me about their progress, how do i confront them",0
+"my partner got a job offer across the country and expects me to move, but i love my life here",0
+how do i deal with a coworker who takes credit for my ideas in front of leadership,0
+"my friends forgot my birthday and i feel so incredibly hurt, do i say something",0
+i resent my husband for not helping more with the baby but when i ask him he just gets defensive,0
+i feel like my friends only reach out when they need something from me,0
+i have to fire someone today and i feel literally sick to my stomach about it,0
+my ex just reached out after two years of no contact and it completely derailed my week,0
+my boss keeps texting me late at night about non urgent things and i feel pressured to reply,0
+how do you rebuild trust with a partner who lied to you about finances,0
+i think i am outgrowing my childhood best friend and the guilt is eating me alive,0
+"my dad is getting older and refuses to go to the doctor, how do i convince him",0
+a guy i went on three dates with just ghosted me and it hurts way more than it should,0
+my mother in law constantly criticizes my cooking and my spouse never defends me,0
+"i told a secret to a coworker and they told the whole office, how do i handle the betrayal",0
+im in a toxic relationship but im too scared to leave because we live together,0
+how do i politely tell a friend i dont want to go to their destination wedding because it's too expensive,0
+do you think it is more important to be kind or to be honest,0
+honestly what do you think is the most overrated sci fi movie of all time,0
+is it weird that i prefer rainy days over sunny ones,0
+"which do you find more compelling in a story, the hero's journey or a tragic downfall",0
+do you think true altruism actually exists or is everything inherently selfish,0
+"what is your personal take on the simulation hypothesis, does it actually matter",0
+do you think minimalist architecture is beautiful or just sterile and boring,0
+honestly do you believe that people can fundamentally change who they are,0
+"which is worse, failing at something you love or succeeding at something you hate",0
+what do you think is the most aesthetically pleasing programming language to read,0
+do you think it's better to read one book deeply or a hundred books broadly,0
+is it just me or is jazz music really stressful to listen to,0
+what do you think makes a piece of art genuinely profound versus just pretentious,0
+do you prefer when authors leave the ending ambiguous or when they tie up all the loose ends,0
+honestly do you think the rise of AI is going to make humans more or less creative,0
+is it weird that i find brutalist architecture weirdly comforting,0
+do you think it is better to be a generalist or a deep specialist in today's world,0
+which superpower would you actually want to have if you had to deal with the real world consequences,0
+"what do you personally think is the greatest human invention, besides the internet or wheel",0
+do you think nostalgia is a healthy emotion or does it just hold us back,0
+honestly what is your opinion on the hustle culture mindset,0
+do you find poetry actually moves you or is it mostly just intellectual wordplay,0
+is it better to forgive and forget or forgive and remember,0
+what do you think is the most underrated virtue in modern society,0
+do you personally think that talent or hard work plays a bigger role in success,0
+what is your take on the idea that ignorance is bliss,0
+do you think humanity is inherently good or inherently flawed,0
+is it strange that i prefer the feeling of wanting something over actually getting it,0
+what do you think is the most beautifully designed everyday object,0
+honestly do you think long distance relationships can ever actually work long term,0
+"i need an email to my landlord mr heckles complaining that the ceiling in apartment 4B has been leaking brown water since tuesday, sound very angry",0
+"can u write a tinder bio for me? im 6'2, love eating cold pizza, work as a forklift driver, and my dog is named sir barksalot",0
+quick text to my mom saying ill be 3 hours late to thanksgiving because i locked my keys in my subaru outback,0
+draft a linkedin post about getting laid off from my startup 'fintech-bros-r-us' but spin it to sound like im excited to explore my passions in woodworking,0
+hey help me write a passive aggressive slack message to sarah in accounting because she keeps stealing my oat milk from the breakroom fridge,0
+pls draft a 500 word blog post about the benefits of indoor house plants but mention the monstera plant exactly 7 times,0
+"write a gentle breakup text for a guy named brad who i've been seeing for a month, mention that his obsession with competitive vaping is a dealbreaker",0
+create a 30 second radio ad script for a local plumbing company called 'marios pipes' that uses at least 3 terrible puns,0
+generate a bedtime story for my 5yo son about a brave little toaster named rupert who fights a dust bunny,0
+"draft a letter of recommendation for my former marketing intern jessica, specifically highlighting her ability to use pivot tables under extreme pressure",0
+"write a standup comedy bit about how frustrating self checkout machines are, but compare them to needy ex-girlfriends",0
+"compose a romantic anniversary poem for my wife of 5 years, make sure it rhymes and mentions our trip to that weird diner in ohio",0
+"write an out of office email autoresponder for my 2 week vacation in hawaii, make it sound like i was kidnapped by a rogue wave",0
+create a catchy slogan for a new organic energy drink that tastes like grass but gives you laser focus,0
+"write a resignation letter to my boss david stating im leaving for a better opportunity, keep it professional but subtly hint that the office smells like cabbage",0
+draft a heartfelt apology email to a client named techcorp for shipping their 500 branded hoodies 3 weeks late,0
+"write a 3 paragraph essay arguing that cats make better pets than dogs, using fictional quotes from abraham lincoln to support the argument",0
+generate an instagram caption for a picture of me at the grand canyon eating a melted snickers bar,0
+write a persuasive email pitching my freelance graphic design services to a local cafe called 'beans & dreams',0
+create a dialogue between two characters trapped in an elevator where one is a clown and the other is an IRS auditor,0
+write a eulogy for my grandfather who was a passionate fisherman and once fought a goose over a hotdog,0
+draft a product description for a handmade ceramic coffee mug that looks slightly lopsided but holds heat really well,0
+write a rap verse about struggling to pay rent in new york city while living with 4 roommates who all play the flute,0
+compose a welcome message for new members joining my discord server about competitive cheese rolling,0
+write a review for a restaurant called 'the salty spoon' where the food was great but the waiter named kyle kept winking at me,0
+generate a mission statement for a startup that builds sustainable furniture entirely out of recycled bowling balls,0
+write a polite message to my neighbor in 3A asking them to stop practicing the tuba at 2 AM,0
+draft a short bio for my personal portfolio website as a freelance photographer who specializes in photographing anxious pets,0
+write a scene for a horror movie where the main character finds a hidden door in their basement that only opens when you sing cher songs,0
+"create a sponsor pitch email for my youtube channel about retro video games, asking 'ridge wallet' for $500",0
+"write a motivational speech for a high school bowling team down by 50 points at halftime, using a metaphor about a wounded gazelle",0
+draft a text to a group chat canceling dinner plans at 'chilis' because my cat swallowed a rubber band,0
+write a short limerick about a software bug in line 42 that wont go away no matter how much coffee i drink,0
+generate a press release announcing a partnership between a sneaker brand and a famous competitive eater named 'big bite brian',0
+write a manifesto for a fictional villain who wants to destroy the internet because it ruined his myspace page,0
+create a set of wedding vows for a couple who bonded over their mutual hatred of the movie 'avatar',0
+write a highly specific response to a customer named pam complaining that her blue sweater arrived slightly more turquoise than expected,0
+draft a proposal for a team building retreat at an ostrich farm in idaho,0
+write a bio for a fictional dnd character who is a level 3 rogue with a severe allergy to velvet,0
+compose a congratulatory message for a colleague named marcus who just had a baby boy and named him 'megatron',0
+write an intro paragraph for a dystopian novel set in a city without sunlight where the currency is old aa batteries,0
+generate a checklist for a student running for student council president on a platform of abolishing math class,0
+write a script for a 60 second tiktok video reviewing a new makeup product that accidentally turned my face neon orange,0
+draft an email to a professor dr. higgins asking for an extension on my term paper because my laptop was stolen by a raccoon,0
+write a short poem about the changing colors of autumn leaves but from the perspective of a squirrel with seasonal depression,0
+create a catchy title and 3 bullet points for a presentation on cybersecurity focusing strictly on risks posed by smart fridges,0
+write a thank you note to a mentor named jennifer who helped me navigate a difficult career transition into professional clowning,0
+need a python script using boto3 that checks an s3 bucket named 'company-receipts-2026' and deletes any pdf that has 'VOID' in the filename,0
+write a react hook that listens for the konami code and then redirects the user to '/easter-egg-page' with a query param of ?found=true,0
+can u write a postgres sql query that selects user_ids where the 'last_login' was on a tuesday and 'account_balance' is exactly 42.69,0
+golang func to parse a csv where column 3 is 'dog_breed' and return a map of only poodles that weigh over 40 lbs,0
+js script that loops over an array called 'mutant_turtles' and splices out any object where 'weapon' == 'nunchucks' and 'color' is not 'orange',0
+write a terraform script to deploy an ec2 instance but it has to have a specific tag 'Department' set to 'Chaos' and use a t2.nano,0
+"can you make a python decorator that catches a 'TimeoutError', prints 'server is taking a nap', and retries exactly 4 times with a 1.5s delay?",0
+"build an express endpoint '/webhook/slack' that reads the json payload, checks if 'user' is 'bob_admin', and if so returns a 403 status",0
+"i need a bash script that finds all .log files in /var/log/app, greps for the string 'FATAL_CORE_DUMP', and emails the count to dev@company.com",0
+"write a c# unity script attached to a rigidBody2D that adds exactly 500 force upwards when the user clicks the right mouse button, but only if 'isGrounded' is true",0
+"regex pattern that matches a string starting with 'ID-', followed by exactly 4 odd numbers, a hyphen, and ends with the word 'GUEST'",0
+"write a rust function that takes a vector of strings, filters out anything starting with 'Z', and returns the total length of the remaining strings combined",0
+"generate a dockerfile for a node app that uses node:18-alpine, copies package.json, runs npm ci, exposes port 8080, and sets an env var 'NODE_ENV' to 'staging'",0
+"need a php script using pdo that updates a table called 'inventory', setting 'stock_count' to 0 where 'item_name' contains the word 'discontinued'",0
+"create a swiftui view that has a red button saying 'self destruct' that when clicked, toggles a boolean state variable 'isExploded'",0
+"write a ruby script that reads 'users.json', parses it, and prints out the email of anyone whose 'subscription_tier' is 'premium_plus'",0
+"build a vue 3 composition api component with a reactive ref 'clickCount', a button to increment it, and a computed property that returns true if count > 10",0
+c++ function that takes a std::vector of integers and returns a new vector containing only the numbers that are perfectly divisible by 7,0
+write a powershell script to recursively search 'C:/Projects' for any folder named 'bin' and forcefully delete it without prompting,0
+generate a kubernetes cronjob yaml named 'db-cleanup' that runs a specific image 'my-registry/cleaner:v2' every wednesday at 3:30 AM,0
+"excel vba macro that checks sheet 'Q3_Sales', and if cell A1 to A50 contains 'Pending', it highlights the row in bright yellow",0
+"graphql schema definition for a 'Spacecraft' type with fields 'id', 'name', 'maxSpeed', and an array of 'Astronaut' objects",0
+"write a kotlin android function using coroutines that fetches from 'https://api.fake.com/status', and if the response is 200, shows a toast saying 'all good'",0
+"python pandas snippet to load 'data.csv', drop any row where the 'revenue' column is NaN, and group the rest by 'store_location' summing the revenue",0
+create an html5 canvas snippet that draws a blue triangle with a black border of 5px width exactly in the center of a 500x500 canvas,0
+"write an aws lambda function in python that triggers on api gateway, reads 'user_id' from the query string, and returns a dummy json payload with a 200 status",0
+"bash script to monitor cpu usage and if it hits 95%, kill the process named 'crypto_miner' and append the timestamp to a file called 'kills.log'",0
+"generate a typescript generic type 'ApiResponse<T>' that has a boolean 'success', a string 'errorMessage', and a data payload of type T",0
+"write a mongodb aggregation pipeline to match documents where 'status' is 'active', group them by 'category', and calculate the average 'price' for each category",0
+"create a django model 'BookReview' with a foreign key to the default User model, an integer rating from 1 to 5, and a text field for the review body",0
+"build a flutter widget that displays a row containing an icon of a star, a text 'favorite', and has a padding of 16 pixels on all sides",0
+"write a sql snippet to alter a table 'employees', adding a new column 'remote_days' of type integer with a default value of 2",0
+"generate a makefile with a target 'build' that runs 'gcc main.c -o app', and a target 'run' that executes './app' with the flag '--verbose'",0
+write a javascript snippet using fetch to post a json object { 'action': 'login' } to '/api/auth' and console log the bearer token from the response,0
+"c# linq query to take a list of 'Customer' objects, filter where 'Age' > 65, order by 'LastName' descending, and select only the 'Email' property",0
+"build a websocket server in node using 'ws' that listens on port 8080, and whenever a message is received, broadcasts it back prefixed with 'SERVER: '",0
+powershell command to get all active directory users in the 'Sales' OU and export their 'SamAccountName' and 'EmailAddress' to a csv on the desktop,0
+write a regex in python to extract a 10 digit phone number formatted strictly as (XXX) XXX-XXXX from a multiline string,0
+scala function that recursively calculates the factorial of a number but throws an IllegalArgumentException if the input is negative,0
+generate an nginx config block for server 'api.myapp.com' that proxies traffic to 'localhost:4000' and sets the 'X-Forwarded-For' header,0
+"write a dart snippet to encode a map object {'user': 'admin', 'role': 1} into a json string and print it",0
+spring boot java repository interface 'UserRepository' extending JpaRepository with a custom method 'findByEmailAndIsActiveTrue(String email)',0
+"shell script to zip a folder '/var/www/html', name the archive with the current date like 'backup-YYYY-MM-DD.zip', and move it to '/backups'",0
+"typescript snippet defining an enum 'OrderStatus' with values 'PENDING', 'SHIPPED', 'DELIVERED', and 'CANCELED'",0
+"python beautifulsoup code to fetch 'http://example.com/news', find all 'div' tags with class 'article-title', and append their text to a list",0
+react custom hook 'useIsMounted' that returns a boolean which is true if the component has mounted and false otherwise,0
+generate 15 fake user records in json format where the username starts with 'dr_' and their age is always a prime number,0
+"write a poem about a toaster, but it has to be in the style of edgar allan poe and mention the phrase 'burnt crumbs' exactly twice",0
+give me a bash script that prints out the lyrics to all star but replaces 'star' with 'shrek' and loops exactly 5 times,0
+"create a markdown table comparing 4 fictional alien races that only eat dairy products, including columns for planet name and preferred cheese",0
+translate the phrase 'i dropped my phone in the toilet' into aggressive pirate speak and wrap it in an xml tag,0
+summarize the plot of the movie jaws but replace all the dinosaurs with giant aggressive chickens,0
+reformat the standard ingredients for pancakes into a strictly typed typescript interface where quantities are numbers,0
+rewrite the first amendment of the us constitution in the style of a valley girl complaining to a barista,0
+generate a fake json payload for a weather api response where the city is 'gotham' and the temperature is exactly -400 degrees,0
+summarize the historical events of the cold war as a dramatic script for a reality tv reunion episode,0
+translate the concept of supply and demand into a conversation between two golden retrievers arguing over a tennis ball,0
+reformat a list of the 7 continents into a python dictionary where the keys are the continents and the values are their exact character count,0
+rewrite the lyrics of happy birthday to be a terrifying heavy metal song about impending doom,0
+generate a 5 sentence story about a vampire who is terrified of the dark and works the night shift at a 7-eleven,0
+summarize the rules of monopoly as if you are an incredibly impatient drill sergeant shouting at recruits,0
+"create a csv formatted list of 10 fake medieval weapons, their damage type, and a silly name for the blacksmith who forged them",0
+rewrite the tale of the three little pigs but the wolf is an aggressive real estate agent trying to flip their houses,0
+translate a standard out of office email into a series of highly specific emoji combinations with no text,0
+reformat a 5x5 tic tac toe game board into a 2d array in java where empty spaces are represented by the string 'VOID',0
+summarize the plot of breaking bad from the perspective of the fictional blue meth itself,0
+generate a fake api response in yaml for an endpoint called '/get-dragons' that returns 3 dragons with names starting with 'X',0
+rewrite the wikipedia entry for the moon landing in the style of a frantic qvc sales pitch trying to sell moon rocks,0
+summarize the french revolution but use software engineering metaphors like 'refactoring the monarchy' and 'deploying the guillotine',0
+translate 'please do not reply all to this email' into a dramatic shakespearean monologue spoken by macbeth,0
+reformat a classic margarita recipe into a sql insert statement adding it to a 'cocktails' table,0
+generate a markdown checklist of 12 completely absurd rules for joining a secret society that worships pineapples,0
+rewrite the ending of the titanic movie so jack survives by building a raft out of frozen frozen celery,0
+summarize the history of the internet as an ancient mythological creation story featuring a god named 'wi-fi',0
+translate the first law of thermodynamics into a short haiku about eating too much pizza,0
+reformat the biography of abraham lincoln into a modern tinder profile including 3 red flags,0
+generate a fake graphql mutation to create a 'Ghost' entity with arguments for 'spookinessLevel' and 'preferredHauntingLocation',0
+rewrite the instructions for changing a car tire as a deeply emotional and philosophical essay about the passage of time,0
+summarize the plot of the great gatsby in the style of a clickbait youtube thumbnail title and description,0
+translate the concept of quantum entanglement into a dialogue between two toddlers who refuse to share a toy truck,0
+reformat a standard shopping list into a bash script that echoes each item with a 1 second delay,0
+"generate a yaml configuration file for a fictional space station detailing oxygen levels, shield integrity, and the captain's favorite snack",0
+"rewrite the declaration of independence into modern text message abbreviations like 'omg', 'lol', and 'brb'",0
+summarize the life cycle of a butterfly as a dramatic coming of age movie trailer script featuring a voiceover by morgan freeman,0
+translate the golden rule into a python conditional statement wrapped in a try-except block,0
+reformat the primary colors and their hex codes into an array of c# structs,0
+generate a fake syslog output containing 5 lines where a critical error is caused by a variable named 'grumpy_cat',0
+rewrite the story of snow white where the seven dwarfs are actually highly skilled cybersecurity hackers,0
+summarize the events of world war 2 from the perspective of an extremely bored house cat living in london,0
+translate 'i would like to order a large pizza with pepperoni' into morse code,0
+reformat the 10 commandments into a strictly typed typescript enum,0
+generate a fake json web token (jwt) payload for a user whose role is 'supreme_overlord' and expires in the year 3000,0
+make a 4 day itinerary for visiting tokyo but i literally only want to visit vintage guitar shops and eat at vegan ramen places,0
+"i have 43 dollars, a broken microwave, and some duct tape. give me a step by step plan to build a cardboard fort for my 3 cats",0
+"need a wedding timeline for a ceremony starting at 4:13 PM, no dancing, and dinner consists only of a taco truck arriving at exactly 6 PM",0
+generate a workout plan for a guy with a broken left toe and no equipment who only has 14 minutes a day at exactly 3am,0
+"create a 3 day vegan meal plan for a bodybuilder aiming for exactly 3850 calories a day, but i absolutely refuse to eat tofu or lentils",0
+"draft a 6 month roadmap for migrating a legacy php app to node js, assuming we only have one junior dev who works 4 hours a week",0
+"generate a step by step checklist for winterizing a 1998 winnebago rv for storage in a freezing climate, specifically mentioning the water heater bypass",0
+"create a 12 week half marathon training schedule for a beginner who can only run on tuesdays, thursdays, and alternating sundays",0
+"draft a project plan for launching a new podcast about rare beetles, including equipment purchases under $150 total",0
+"make a highly detailed grocery list for hosting a thanksgiving dinner for 7 people, where 2 are vegan, 1 is allergic to nuts, and 1 strictly eats only orange foods",0
+generate a daily routine schedule for a remote worker with adhd who needs structured breaks every 22 minutes and works best between 8pm and 4am,0
+"create a content calendar template for a beauty brands tiktok spanning 3 weeks, focusing entirely on a new line of neon green lipsticks",0
+draft a business plan outline for a mobile dog grooming service in austin texas that only grooms poodles and greyhounds,0
+"make a checklist of everything i need to pack for a 5 day hiking trip in colorado, assuming it will rain the entire time and i don't own a tent",0
+"generate a seating chart layout for a 30 person corporate dinner with 3 round tables, keeping bob from accounting as far away from the ceo as possible",0
+"draft a risk mitigation plan for a construction project building a shed in a hurricane zone, using only bamboo and zip ties",0
+"make a budget spreadsheet structure for a college student living off campus making $300 a week, who insists on spending $50 a week on comic books",0
+"generate a house cleaning schedule for a family of 5 broken down by daily chores, where the 6 year old is assigned entirely to dusting baseboards",0
+"create a marketing campaign rollout schedule for an indie horror video game launching on halloween, utilizing only zero-cost guerilla marketing tactics",0
+draft a lesson plan for a 45 minute 8th grade science class teaching the phases of the moon using exclusively oreo cookies,0
+make a checklist for setting up a home recording studio from scratch in a 4x4 closet on a $300 budget,0
+"generate a roadmap for learning rust programming from scratch to building a web server, assuming i only know visual basic 6.0",0
+"create a 5 day workout split for someone who only has one 15lb dumbbell, a wobbly chair, and a jump rope",0
+draft a transition plan for handing over my duties as lead barista to my coworker kyle before my 3 month sabbatical to nepal,0
+"make a step by step guide for planning a surprise 40th birthday party at a rented bowling alley, where the theme is strictly 'the 1980s'",0
+generate an onboarding checklist for a new remote software engineer starting at a tech startup that currently has no documentation whatsoever,0
+"create a disaster recovery plan for a small e-commerce website hosted on aws, specifically addressing what to do if an intern accidentally drops the production database",0
+"draft a weekly social media posting schedule for a local bakery trying to increase foot traffic, focusing entirely on their new line of sourdough croissants",0
+"make a packing list for a hospital bag for a first time mom expecting twins, including snacks that don't make crunching noises",0
+generate a study schedule for the cfa level 1 exam assuming i have exactly 83 days and can only study while commuting on a train,0
+"create a roadmap for a complete kitchen renovation outlining contractor hiring and demo phases, keeping the budget strictly under $5000",0
+draft a financial savings plan to afford a $50k house downpayment in 3 years while currently making $45k a year and paying off a $500/month car loan,0
+make a checklist for launching a kickstarter campaign for a new board game about competitive pigeon racing,0
+generate a daily feeding and walking schedule for a new 8 week old husky puppy for a couple working opposing 12 hour shifts,0
+create a 14 day road trip itinerary for driving route 66 from chicago to la driving a 2005 honda civic that overheats if driven more than 4 hours a day,0
+draft a product development timeline for creating a new line of organic skincare serums made entirely from mushroom extract,0
+make a checklist of things to inspect when doing a walkthrough of a house im thinking of buying that was built in 1912 and reportedly has ghosts,0
+"generate a schedule for a 2 day virtual conference for digital marketers, where every single session is strictly 18 minutes long",0
+"create a 30 day challenge calendar for practicing daily mindfulness, but every activity must take less than 60 seconds",0
+"draft an editorial calendar for a tech blog covering ai news over the next quarter, with a strict mandate to never mention the word 'chatgpt'",0
+make a step by step guide for hosting a successful neighborhood garage sale when you live on a dead end street with no foot traffic,0
+generate a project management template for a creative agency producing a 15 second commercial for a local car wash,0
+create a meal prep plan for a week of high protein lunches that require no microwaving and contain absolutely no chicken,0
+"draft a 5 year career progression plan for a junior graphic designer aiming to become an art director, assuming they never want to learn 3d modeling",0
+make a checklist for winterizing a 14 foot aluminum fishing boat stored outside in minnesota,0
+generate an itinerary for a bachelorette weekend in nashville for 8 girls where the bride is strictly sober and hates loud music,0
+create a syllabus outline for an introductory college course on the history of jazz music focusing entirely on the years 1920 to 1929,0
+"draft a timeline for opening a brick and mortar bookstore from signing the lease to opening day, assuming the entire renovation is diy",0
+make a checklist of documents needed to apply for a small business loan specifically to buy a commercial espresso machine,0
+generate a weekly garden maintenance schedule for mid summer vegetable harvesting in a highly arid desert climate,0
+why not,0
+sure,0
+meaning,0
+no wait,0
+exactly,0
+what else,0
+okay and,0
+nope,0
+interesting,0
+elaborate,0
+where does this go,0
+how did you get that,0
+why is it doing that,0
+what happens if i change it,0
+is that the only way,0
+can i just delete it,0
+are those required,0
+how much does that cost,0
+show me an example of this,0
+what does it return,0
+i dont understand that part,0
+why did it fail,0
+is there a catch to that,0
+which of those is faster,0
+does this make sense,0
+is there a free tier,0
+what are the prerequisites,0
+what if the first step is skipped,0
+are there any known bugs,0
+how steep is the learning curve,0
+how often is maintenance required,0
+what about backwards compatibility,0
+are there any rate limits,0
+will performance drop,0
+are there security risks,0
+what are the main side effects,0
+how long does setup take,0
+any other recommendations,0
+what happens on timeout,0
+does the app work offline,0
+write it out completely,0
+change the tone to professional,0
+give me more details,0
+format this as a table,0
+rewrite that without jargon,0
+go back to the previous step,0
+make the text a bit friendlier,0
+summarize the second point,0
+turn it into a list,0
+translate the last part to spanish,0
+what are the main disadvantages of this approach,0
+how would that perform under high load,0
+what are the security implications,0
+is there a more efficient algorithm for this,0
+how does that affect the overall performance,0
+what's the time complexity of this one,0
+will that scale well when users increase,0
+what are the main bottlenecks here,0
+is the syntax correct there,0
+what happens if the user leaves that blank,0
+would this pass a standard code review,0
+is that completely gdpr compliant,0
+what are the hidden costs of doing it this way,0
+does that approach handle concurrency properly,0
+how fragile is this setup,0
+what are the tradeoffs of going with the second option,0
+is this considered best practice,0
+what are the accessibility concerns here,0
+how maintainable is this code in the long run,0
+what are the compliance risks of that,0
+is this backwards compatible,0
+what happens during a network outage with this,0
+will that cause a memory leak,0
+what are the downstream effects of changing this,0
+how resilient is that architecture,0
+is this thread safe,0
+what are the licensing implications of that,0
+how does this impact seo,0
+what are the main edge cases to watch out for,0
+is this approach future proof,0
+what happens if the database goes down during this,0
+how would this handle invalid input,0
+are there any browser compatibility issues with this,0
+what is the failure rate of that method,0
+does this violate any solid principles,0
+how does that impact the page load speed,0
+is this the most idiomatic way to write it,0
+what are the privacy concerns of doing that,0
+will this approach cause merge conflicts later,0
+how does that affect the conversion rate,0
+are there any race conditions here,0
+what is the worst case complexity of this,0
+how does that impact the battery life of the device,0
+is this vulnerable to injection attacks,0
+what are the systemic risks of that decision,0
+how does this affect user retention,0
+what are the operational overheads of this,0
+is that approach actually scalable,0
+what are the seo drawbacks of doing it this way,0
+how does that change the dependency graph,0
+what are the audit requirements for this,0
+is this structure too deeply nested,0
+what happens if we get a sudden spike in traffic here,0
+are there any cross origin issues with this,0
+how does that impact the cache hit ratio,0
+is this overengineering,0
+what are the logging requirements for this,0
+how does that handle timezone differences,0
+what is the blast radius if this fails,0
+are there any ethical concerns with this approach,0
+how should I approach the negotiation,0
+what should I focus on first,0
+is it worth the effort,0
+how long should this realistically take me,0
+what's a reasonable budget for this,0
+should I bring this up in the meeting,0
+what's the worst case scenario here,0
+how do I know if I'm ready for this,0
+is it too late to pivot,0
+should I accept the counteroffer,0
+how aggressive should I be on pricing,0
+what's a good timeline to propose,0
+how do I handle the pushback,0
+is this a red flag,0
+should i just rewrite it from scratch,0
+what's the most polite way to decline this,0
+how do I justify this to management,0
+should I ask for an extension,0
+what's a fair equity split for this,0
+how much detail should I include,0
+is this a reasonable request,0
+should I escalate this,0
+what's the best way to break the news,0
+how do I measure the success of this,0
+should I charge hourly or fixed price for this,0
+what's the most diplomatic way to handle this,0
+how do I balance this with my other work,0
+is this a good time to ask for a raise,0
+should I follow up again,0
+what's the best strategy for this launch,0
+how do I avoid sounding defensive here,0
+is this worth bringing to hr,0
+should I sign this non compete,0
+what's the best way to handle this gap in my resume,0
+how do I pitch this idea,0
+should I outsource this part,0
+what's a realistic conversion rate to expect,0
+how do I keep the team motivated through this,0
+is this pricing tier too expensive,0
+should I push back on this deadline,0
+what's the best way to respond to this review,0
+how do I set boundaries here,0
+is this a normal clause to include,0
+should I invest more time into this,0
+what's the best way to format my portfolio for this,0
+how do I make sure I get credit for this,0
+is this too informal for the audience,0
+should I offer a discount,0
+what's a good metric to track for this,0
+how do I handle this micromanagement,0
+is this a conflict of interest,0
+should I automate this or do it manually,0
+what's the best way to apologize for this,0
+how do I transition into this role,0
+is this legal to do,0
+should I focus on quality or speed here,0
+what's the best channel to market this on,0
+how do I handle this difficult stakeholder,0
+is this feedback valid,0
+should I cut my losses on this project,0
+what does that error mean exactly,0
+how does the authentication flow work,0
+what is the difference between the two options,0
+can you explain the third point again,0
+what exactly does the last sentence mean,0
+how does the retry mechanism work here,0
+what's the purpose of that middle step,0
+what does the output actually signify,0
+why did that fail,0
+where does that number come from,0
+what is the root cause of this,0
+how does the integration actually connect,0
+what is the fallback behavior,0
+why is the second one better,0
+what does that acronym stand for in this context,0
+how does the scoring system work,0
+what exactly is the bug,0
+why does it behave like that,0
+what is the primary key in that schema,0
+how does the webhook get triggered,0
+what is the expected output format,0
+why did it skip the first step,0
+what does that specific warning imply,0
+how does the lifecycle method fit in here,0
+what is the business logic behind this,0
+why is that variable undefined,0
+what does the stack trace indicate,0
+how does the caching strategy work,0
+what is the relationship between those two tables,0
+why did the build fail,0
+what does that status code mean here,0
+how does the pagination work,0
+what is the underlying issue,0
+why is the performance so poor,0
+what does the payload look like,0
+how does the rate limiting work,0
+what is the exact syntax for that,0
+why did it return null,0
+what does that metric actually measure,0
+how does the routing work,0
+what is the default behavior if i don't specify,0
+why is it throwing an exception,0
+what does that query actually do,0
+how does the sorting algorithm work here,0
+what is the scope of that variable,0
+why did it timeout,0
+what does that flag do,0
+how does the session management work,0
+what is the exact formula used there,0
+why did it overwrite the file,0
+what does that specific log entry mean,0
+how does the validation logic work,0
+what is the condition for that to trigger,0
+why is the UI freezing,0
+what does that environment variable do,0
+how does the state management work,0
+what is the criteria for success,0
+why did the test fail,0
+what does that parameter represent,0
+how does the indexing work,0
+how do I get it deployed before the deadline,0
+how do I explain this to my non technical team,0
+how do I convince them it is the right call,0
+how do I roll this back safely,0
+how do I migrate without breaking the current setup,0
+how can I test this locally first,0
+what's the best way to pitch this to leadership,0
+how do I document this for the new hires,0
+how can i optimize this for mobile screens,0
+how do i make this sound less aggressive,0
+how to adapt this for a european audience,0
+how do I test this without mock data,0
+how do I integrate this into our existing pipeline,0
+how do I train the team on this new workflow,0
+how do I refactor this without downtime,0
+how do I explain this delay to the client,0
+how do I make this accessible for visually impaired users,0
+how do I present this data to the board,0
+how do I fix this without altering the database schema,0
+how do I run this on a low resource machine,0
+how do I ensure this complies with our internal policies,0
+how do I debug this in production,0
+how do I make this more appealing to younger demographics,0
+how do I automate this using our current stack,0
+how do I handle the transition period for this,0
+how do I back this up securely,0
+how do I prove the roi of this initiative,0
+how do I merge these conflicting branches,0
+how do I phrase this to avoid legal liability,0
+how do I implement this without slowing down the app,0
+how do I scale this for our holiday traffic,0
+how do I onboard users onto this new feature,0
+how do I resolve this dependency conflict,0
+how do I make this sound more professional,0
+how do I align this with our company OKRs,0
+how do I monitor the success of this campaign,0
+how do I gracefully deprecate the old version,0
+how do I adapt this for a limited budget,0
+how do I test this edge case specifically,0
+how do I negotiate a better rate for this,0
+can you put that into a table,0
+can you write that up as a proper email,0
+can you turn that into bullet points,0
+can you make that more formal,0
+can you summarize the main takeaways,0
+how would you phrase this in an apology,0
+can you translate the technical parts into plain english,0
+generate a checklist from this,0
+can you write a docstring for it,0
+put this into a presentation outline,0
+can you draft a response to this,0
+rephrase that to sound more confident,0
+can you format that as a json object,0
+write a commit message for this change,0
+can you condense this into an executive summary,0
+turn these notes into a blog post,0
+can you generate a readme for this,0
+format this code properly,0
+can you write a cover letter based on this,0
+rewrite this paragraph to flow better,0
+can you extract the key dates from this,0
+write a follow up message for this,0
+can you structure this as a step by step guide,0
+translate this into typescript,0
+can you draft an faq section from this,0
+make this sound more persuasive,0
+can you create a timeline for this,0
+write a polite rejection for this,0
+can you format these references correctly,0
+turn this into a standard operating procedure,0

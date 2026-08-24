@@ -1,0 +1,20 @@
+{
+  "threshold": 0.97,
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "embedding_dim": 384,
+  "classes": {
+    "0": "bypass",
+    "1": "cacheable"
+  },
+  "best_params": {
+    "activation": "relu",
+    "alpha": 0.1,
+    "hidden_layer_sizes": [
+      128
+    ],
+    "learning_rate_init": 0.001,
+    "solver": "lbfgs"
+  },
+  "test_roc_auc": 0.9889724310776943,
+  "training_size": 1751
+}

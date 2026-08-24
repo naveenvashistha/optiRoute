@@ -1,0 +1,35 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+import logging
+
+# ── Logging setup ─────────────────────────────────────────────────────────────
+# Configure root logger once here so every module's logger inherits this format.
+# Each module does `logger = logging.getLogger(__name__)` to get a named logger,
+# so terminal output shows which file the log came from.
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)-7s | %(name)s | %(message)s",
+    datefmt="%H:%M:%S",
+)
+logger = logging.getLogger("src.main")
+
+app = FastAPI(title="OptiRoute API", version="1.0.0")
+
+# Allow the React dev server (port 3000) to call this API and exchange cookies.
+# allow_credentials=True is required for the qm_session cookie to be sent/received.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+logger.info("QueryMind API initialized")
+
+@app.get("/api/health")
+def health():
+    # Simple liveness check — used to verify the server is up.
+    logger.info("Health check requested")
+    return {"status": "ok"}
+    
