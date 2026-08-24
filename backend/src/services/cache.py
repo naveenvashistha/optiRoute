@@ -1,27 +1,11 @@
-# src/services/semantic_cache.py
-
 import logging
-from fastembed import TextEmbedding
 from redisvl.query import VectorQuery
-
-# Import our settings and the RedisVL index we just built!
+from src.services.embedding import get_embedding
 from src.core.config import settings
 from src.core.db import cache_index
 
 logger = logging.getLogger(__name__)
 
-# 1. Initialize FastEmbed Model
-# This will download the BAAI/bge-small-en-v1.5 model the first time it runs 
-# and load it into your local CPU memory for blazing-fast inference.
-logger.info(f"Loading FastEmbed model: BAAI/bge-small-en-v1.5")
-embedding_model = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
-
-def get_embedding(text: str) -> list[float]:
-    """Helper function to convert text into a 384-dimension vector."""
-    # FastEmbed returns a generator of numpy arrays, we want the first list of floats
-    embeddings_generator = embedding_model.embed([text])
-    first_embedding = next(embeddings_generator)
-    return first_embedding.tolist()
 
 def check_cache(user_query: str) -> str | None:
     """
@@ -51,7 +35,7 @@ def check_cache(user_query: str) -> str | None:
         distance = float(best_match["vector_distance"])
         
         # If the distance is smaller than our allowed threshold (e.g., < 0.10 for 90% similarity)
-        if distance <= settings.CACHE_THRESHOLD:
+        if distance <= settings.SIMILARITY_THRESHOLD:
             logger.info(f"Cache HIT! Matched with distance: {distance}")
             return best_match["answer"]
             
