@@ -13,7 +13,7 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)-7s | %(name)s | %(message)s",
     datefmt="%H:%M:%S",
 )
-logger = logging.getLogger("src.main")
+logger = logging.getLogger(__name__)
 
 # ── Lifespan Context ──────────────────────────────────────────────────────────
 @asynccontextmanager

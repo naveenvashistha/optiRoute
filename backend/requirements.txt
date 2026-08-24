@@ -4,3 +4,4 @@ python-dotenv
 redisvl
 fastembed
 logging
+joblib

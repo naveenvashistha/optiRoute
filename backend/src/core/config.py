@@ -1,8 +1,13 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
 # Load environment variables the moment this file is imported
 load_dotenv()
+
+# Calculate the absolute path to the root 'backend' folder.
+# __file__ is config.py. We go up three levels: core -> src -> backend
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 class Settings:
     # ── Redis Connection Settings ─────────────────────────────────────────────
@@ -17,7 +22,15 @@ class Settings:
     
     # Cache Threshold. Note: RedisVL calculates distance (1.0 - similarity).
     # If you want 90% similarity, the maximum distance allowed is 0.10.
-    CACHE_THRESHOLD: float = float(os.getenv("CACHE_THRESHOLD", "0.10"))
+    SIMILARITY_THRESHOLD: float = float(os.getenv("SIMILARITY_THRESHOLD", "0.10"))
+
+    # Intent Classifier Threshold. If the probability of class 1 (cachable query)
+    # is greater than or equal to this threshold, we classify it as a cachable query.
+    INTENT_THRESHOLD: float = float(os.getenv("INTENT_THRESHOLD", "0.97"))
+
+    # ── Intent Classifier Settings ────────────────────────────────────────────
+    # Path to your trained MLP classifier .joblib file
+    MODEL_PATH: str = os.getenv("MODEL_PATH", str(BASE_DIR / "models" / "intent_mlp_model.joblib"))
 
     # ── RedisVL Schema Definition ──────────────────────────────────────────────
     # We define the RedisVL index structure declaratively here.
