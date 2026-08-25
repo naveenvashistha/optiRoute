@@ -32,6 +32,12 @@ class Settings:
     # Path to your trained MLP classifier .joblib file
     MODEL_PATH: str = os.getenv("MODEL_PATH", str(BASE_DIR / "models" / "intent_mlp_model.joblib"))
 
+    # ── Telemetry & Pricing Settings (NEW) ────────────────────────────────────
+    # Baseline pricing (per 1 Million tokens) used to calculate "Cost Saved"
+    # Defaults are based on OpenAI's GPT-4o-mini pricing
+    PRICE_PER_1M_INPUT_TOKENS: float = float(os.getenv("PRICE_PER_1M_INPUT_TOKENS", "0.150"))
+    PRICE_PER_1M_OUTPUT_TOKENS: float = float(os.getenv("PRICE_PER_1M_OUTPUT_TOKENS", "0.600"))
+
     # ── RedisVL Schema Definition ──────────────────────────────────────────────
     # We define the RedisVL index structure declaratively here.
     CACHE_SCHEMA: dict = {
