@@ -5,3 +5,8 @@ redisvl
 fastembed
 logging
 joblib
+scikit-learn
+httpx
+openai
+torch
+transformers
