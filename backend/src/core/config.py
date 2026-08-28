@@ -38,6 +38,16 @@ class Settings:
     PRICE_PER_1M_INPUT_TOKENS: float = float(os.getenv("PRICE_PER_1M_INPUT_TOKENS", "0.150"))
     PRICE_PER_1M_OUTPUT_TOKENS: float = float(os.getenv("PRICE_PER_1M_OUTPUT_TOKENS", "0.600"))
 
+    # ── Router Model Settings ─────────────────────────────────────────────────
+    ROUTER_MODEL_PATH: str = os.getenv("ROUTER_MODEL_PATH", str(BASE_DIR / "models" / "optiroute_router_model"))
+
+    # ── LLM Client Settings ───────────────────────────────────────────────────
+    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+    OPENAI_MODEL: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    
+    OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+    LOCAL_MODEL_NAME: str = os.getenv("LOCAL_MODEL_NAME", "llama3.2:3b")
+
     # ── RedisVL Schema Definition ──────────────────────────────────────────────
     # We define the RedisVL index structure declaratively here.
     CACHE_SCHEMA: dict = {

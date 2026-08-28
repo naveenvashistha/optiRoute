@@ -42,6 +42,10 @@ app.add_middleware(
 
 logger.info("OptiRoute initialized")
 
+# --- ADD THESE TWO LINES ---
+from src.api import chat
+app.include_router(chat.router, prefix="/api")
+
 @app.get("/api/health")
 def health():
     # Simple liveness check — used to verify the server is up.
