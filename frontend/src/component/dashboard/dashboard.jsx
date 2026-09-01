@@ -1,8 +1,8 @@
 // src/components/dashboard/Dashboard.jsx
 import MetricCard from "./metricCard";
 import TrafficFunnel from "./trafficFunnel";
-import { useTelemetry } from "../../context/TelemetryContext";
-import { formatCurrency, formatNumber, formatPercentage } from "../../utils/formatters";
+import { useTelemetry } from "../../context/metrics";
+import { formatCurrency, formatNumber, formatPercentage } from "../../utils/formatter";
 
 export default function Dashboard() {
   const { stats } = useTelemetry();
