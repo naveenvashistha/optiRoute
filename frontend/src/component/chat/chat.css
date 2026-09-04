@@ -1,0 +1,536 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scroll stream flex-anchoring */
+.chat-history {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem 1.5rem 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  scroll-behavior: smooth;
+}
+
+.chat-history::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-history::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-history::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+.chat-history::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Wrappers */
+.message-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.user-wrapper {
+  justify-content: flex-end;
+}
+
+.ai-wrapper {
+  justify-content: flex-start;
+}
+
+/* User Bubble */
+.user-bubble {
+  max-width: 75%;
+  padding: 0.85rem 1.25rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  white-space: pre-wrap; 
+  word-break: break-word; 
+}
+
+/* AI Canvas */
+.ai-content-canvas {
+  width: 100%;
+  color: #d1d5db; 
+  font-size: 1rem;
+  line-height: 1.75;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.ai-content-canvas p {
+  margin-bottom: 1.25rem;
+}
+
+.ai-content-canvas p:last-child {
+  margin-bottom: 0;
+}
+
+.ai-content-canvas h1,
+.ai-content-canvas h2,
+.ai-content-canvas h3 {
+  color: #ffffff; 
+  margin-top: 2.5rem; 
+  margin-bottom: 1rem; 
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.ai-content-canvas h1 { font-size: 1.5rem; }
+.ai-content-canvas h2 { font-size: 1.35rem; }
+.ai-content-canvas h3 { font-size: 1.15rem; }
+
+.ai-content-canvas hr {
+  border: none;
+  border-top: 1px solid #27272a;
+  margin: 2.5rem 0;
+}
+
+.ai-content-canvas ul, 
+.ai-content-canvas ol {
+  margin-left: 1rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+.ai-content-canvas li {
+  margin-bottom: 0.75rem; 
+  padding-left: 0.25rem;
+}
+
+.ai-content-canvas strong {
+  color: #f3f4f6;
+  font-weight: 600;
+}
+
+/* ── Markdown Tables & Blockquotes ── */
+.ai-content-canvas table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.92rem;
+}
+
+.ai-content-canvas th,
+.ai-content-canvas td {
+  border: 1px solid #27272a;
+  padding: 0.85rem 1.25rem;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.ai-content-canvas th {
+  background-color: #18181b;
+  color: #fafafa;
+  font-weight: 600;
+}
+
+.ai-content-canvas tr:nth-child(even) {
+  background-color: #09090b; 
+}
+
+.ai-content-canvas blockquote {
+  border-left: 4px solid #3b82f6;
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  color: #a1a1aa;
+  font-style: italic;
+  background-color: #09090b;
+  padding: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* ── Code Blocks ── */
+.inline-code {
+  background-color: #18181b;
+  color: #f43f5e;
+  border: 1px solid #27272a;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.35rem;
+  font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+  font-size: 0.88rem;
+}
+
+.code-block-wrapper {
+  margin: 1.25rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid #27272a;
+  background-color: #09090b;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #18181b;
+  border-bottom: 1px solid #27272a;
+  font-size: 0.8rem;
+  color: #a1a1aa;
+  font-family: monospace;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.action-icon-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, transform 0.1s;
+  padding: 0.2rem;
+  opacity: 0.85;
+}
+
+.action-icon-btn:hover {
+  background-color: #3f3f46;
+  opacity: 1;
+}
+
+/* ── Loading Animation ── */
+.loading-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #71717a;
+  font-style: italic;
+  font-size: 0.92rem;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.4; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+/* ── Chat Input Area & Textarea Math ── */
+.chat-input-area {
+  flex-shrink: 0;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  background-color: #000000;
+  max-width: 768px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.input-box-wrapper {
+  display: flex;
+  align-items: flex-end; 
+  background-color: #27272a;
+  border-radius: 26px; 
+  padding: 6px 6px 6px 16px; 
+  border: 1px solid #3f3f46;
+  box-sizing: border-box;
+  gap: 0.5rem;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.input-box-wrapper:focus-within {
+  border-color: #3b82f6;
+}
+
+.input-box-wrapper textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fafafa;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+  line-height: 24px; 
+  padding: 8px 0; /* 8px top + 24px text + 8px bottom = 40px footprint */
+  margin: 0;
+  min-height: 40px; 
+  max-height: 200px;
+  box-sizing: border-box; /* CRITICAL: Syncs React's scrollHeight with CSS padding */
+}
+
+.input-box-wrapper textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.input-box-wrapper textarea::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+.input-box-wrapper textarea::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+
+.input-box-wrapper textarea::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* ── Dynamic Send/Stop Icon Button ── */
+.icon-action-btn {
+  background-color: #2563eb; 
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  flex-shrink: 0;
+}
+
+.icon-action-btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.icon-action-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.icon-action-btn:disabled {
+  background-color: #3f3f46;
+  color: #a1a1aa;
+  cursor: not-allowed;
+}
+
+.icon-action-btn.stop-btn {
+  background-color: #3f3f46; 
+}
+
+.icon-action-btn.stop-btn:hover {
+  background-color: #52525b;
+}
+
+/* ── Message Action Rows ── */
+.message-inner-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.user-inner {
+  align-items: flex-end;
+}
+
+.message-action-row {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.4rem;
+  opacity: 1; /* Force permanent visibility */
+  visibility: visible;
+}
+
+.action-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff; /* Forces white color instead of grey */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  border-radius: 0.35rem;
+  transition: background-color 0.2s;
+  opacity: 0.85;
+}
+
+.action-btn:hover {
+  background-color: #3f3f46;
+  opacity: 1;
+}
+
+/* Master override for all Action Icons (Copy, Edit, Regenerate) */
+.action-btn svg, .action-icon-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* ── Status Overlays & Widgets ── */
+.reconnecting-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  font-weight: 500;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.scroll-to-bottom-btn {
+  position: absolute;
+  bottom: 110px; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3f3f46;
+  color: #ffffff;
+  border: 1px solid #52525b;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.scroll-to-bottom-btn:hover {
+  background-color: #52525b;
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* ── Inline Edit Textarea ── */
+.inline-edit-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  background-color: #27272a;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #3f3f46;
+}
+
+.inline-edit-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fafafa;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+  line-height: 1.5;
+  min-height: 60px;
+}
+
+.inline-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.inline-edit-btn {
+  background-color: transparent;
+  color: #a1a1aa;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.inline-edit-btn:hover {
+  background-color: #3f3f46;
+  color: #fafafa;
+}
+
+.inline-edit-btn.submit {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.inline-edit-btn.submit:hover {
+  background-color: #1d4ed8;
+}
+
+/* ── Custom User-Friendly Toasts ── */
+.optiroute-toast {
+  display: flex;
+  align-items: flex-start;
+  width: 360px;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.optiroute-toast.error { background-color: #d9534f; }
+.optiroute-toast.success { background-color: #5cb85c; }
+.optiroute-toast.info { background-color: #5bc0de; }
+.optiroute-toast.warning { background-color: #f0ad4e; }
+
+.toast-icon-container {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.toast-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.toast-message {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  line-height: 1.4;
+}
+
+.toast-close-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.6;
+  padding: 0 0 0 16px;
+}
+
+.toast-close-btn:hover {
+  opacity: 1;
+}
