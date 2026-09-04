@@ -2,109 +2,86 @@
  * Application Root Component (App.jsx)
  * ====================================
  * Serves as the primary layout wrapper for the OptiRoute Gateway.
- * Manages the global state for the slide-out Telemetry Dashboard
- * and handles the responsive flex-box layout transitions between
- * the chat interface and the metrics view.
+ * Merges the GitHub team's Tailwind aesthetics & Dashboard component
+ * with the local dynamic sliding-state layout engine.
  */
 
 import React, { useState } from "react";
 import ChatInterface from "./component/chat/ChatInterface";
+import Dashboard from "./component/dashboard/dashboard";
 import "./App.css";
 
-function App() {
+export default function App() {
   // Tracks the visibility state of the side telemetry dashboard
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
 
   return (
     // ── Master App Container ──
-    // Forces the app to take up exactly 100% of the viewport height, preventing body scroll.
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-        backgroundColor: "#000000",
-      }}
-    >
-      {/* ── Top Navigation Bar ── */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "1rem 2rem",
-          backgroundColor: "#111111",
-          borderBottom: "1px solid #333333",
-        }}
-      >
-        <h2 style={{ margin: 0, color: "#f8fafc", fontSize: "1.25rem" }}>
-          OptiRoute Gateway
-        </h2>
+    <div className="min-h-screen bg-[#0a0f1d] text-slate-100 flex flex-col antialiased overflow-hidden">
+      {/* ── Top Navbar (Merged Aesthetics) ── */}
+      <header className="border-b border-slate-800/80 bg-[#0f172a]/50 backdrop-blur-md px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2.5">
+          {/* GitHub Team's pulsing status indicator */}
+          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+          <h1 className="font-bold tracking-wide text-base text-white">
+            OptiRoute Gateway
+          </h1>
+        </div>
 
-        {/* Dashboard Toggle Button */}
-        <button
-          onClick={() => setIsDashboardOpen(!isDashboardOpen)}
-          style={{
-            backgroundColor: isDashboardOpen ? "#333333" : "#2563eb",
-            color: "white",
-            border: "none",
-            borderRadius: "0.5rem",
-            padding: "0.5rem 1rem",
-            cursor: "pointer",
-            fontWeight: "bold",
-            transition: "0.2s",
-          }}
-          title={
-            isDashboardOpen
-              ? "Close Telemetry Dashboard"
-              : "Open Telemetry Dashboard"
-          }
-        >
-          {isDashboardOpen ? "Close Dashboard" : "View Telemetry"}
-        </button>
-      </div>
+        <div className="flex items-center gap-4">
+          {/* GitHub Team's static metric badge */}
+          <span className="hidden sm:block text-xs font-mono text-slate-400 bg-slate-900/90 border border-slate-800 px-2.5 py-1 rounded-md">
+            Session Metrics: Active
+          </span>
 
-      {/* ── Main Content Area ── */}
-      {/* Flex-grow ensures this takes up all remaining vertical space below the navbar */}
-      <div style={{ display: "flex", flexGrow: 1, overflow: "hidden" }}>
+          {/* Local Team's Dynamic Toggle Button converted to Tailwind */}
+          <button
+            onClick={() => setIsDashboardOpen(!isDashboardOpen)}
+            className={`px-4 py-2 rounded-md font-bold text-sm transition-colors duration-200 ${
+              isDashboardOpen
+                ? "bg-slate-800 text-white hover:bg-slate-700"
+                : "bg-blue-600 text-white hover:bg-blue-700"
+            }`}
+            title={
+              isDashboardOpen
+                ? "Close Telemetry Dashboard"
+                : "Open Telemetry Dashboard"
+            }
+          >
+            {isDashboardOpen ? "Close Dashboard" : "View Telemetry"}
+          </button>
+        </div>
+      </header>
+
+      {/* ── Main Content Area (Local Sliding Engine) ── */}
+      <div className="flex grow overflow-hidden">
         {/* ── Chat Interface Section ── */}
-        {/* Dynamically resizes based on dashboard state using cubic-bezier for a smooth mechanical slide */}
         <div
           style={{
             width: isDashboardOpen ? "70%" : "100%",
             transition: "width 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-            height: "100%",
           }}
+          className="h-full"
         >
           <ChatInterface />
         </div>
 
         {/* ── Telemetry Dashboard Section ── */}
-        {/* Hides completely when closed (0% width, 0 opacity), slides in when opened */}
         <div
           style={{
             width: isDashboardOpen ? "30%" : "0%",
             opacity: isDashboardOpen ? 1 : 0,
             transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-            borderLeft: isDashboardOpen ? "1px solid #333333" : "none",
-            backgroundColor: "#000000",
-            color: "#94a3b8",
-            overflow: "hidden", // CRITICAL: Prevents inner content from spilling out during the slide animation
-            display: "flex",
-            flexDirection: "column",
           }}
+          className="h-full border-l border-slate-800/80 bg-[#0f172a] overflow-hidden flex flex-col"
         >
-          {/* Inner container maintains a minimum width so content doesn't squish during transition */}
-          <div style={{ padding: "2rem", width: "100%", minWidth: "300px" }}>
-            <h3 style={{ color: "#e2e8f0", margin: "0 0 1rem 0" }}>
-              Telemetry Dashboard
-            </h3>
-            <p>Naveen's metrics will mount here...</p>
+          {/* Inner container maintains a minimum width so the GitHub Dashboard doesn't squish during transition */}
+          <div className="w-full min-w-[320px] h-full overflow-y-auto p-2">
+            {/* Mounting the GitHub Team's actual Dashboard component */}
+            <Dashboard />
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default App;
