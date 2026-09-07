@@ -46,8 +46,8 @@ groq_client = AsyncOpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
-
-async def call_local_llm_stream(messages: list[dict], max_retries: int = 3):
+# 1. Add max_tokens to the signature with a default fallback
+async def call_local_llm_stream(messages: list[dict], max_retries: int = 3, max_tokens: int = 4096):
     """
     Streams the response from the Local SLM (or Groq during testing).
     
@@ -79,20 +79,37 @@ async def call_local_llm_stream(messages: list[dict], max_retries: int = 3):
                 # --- GROQ TESTING LOGIC ---
                 logger.info(f"Routing to Fast Testing SLM (Attempt {attempt + 1}/{max_retries})...")
                 response = await groq_client.chat.completions.create(
-                    model="gemma2-9b-it", # Groq model identifier
+                    model="openai/gpt-oss-20b", 
                     messages=clean_messages,
                     temperature=0.7,
-                    max_tokens=4096,
+                    max_tokens=max_tokens, # <-- Applies the dynamic budget
                     stream=True 
                 )
                 
                 async for chunk in response:
-                    content = chunk.choices[0].delta.content
+                    # Some OpenAI-compatible endpoints occasionally yield empty chunks
+                    if not chunk.choices:
+                        continue
+                        
+                    choice = chunk.choices[0]
+                    
+                    # 1. Catch API generation blocks (e.g., "length", "content_filter")
+                    if choice.finish_reason and choice.finish_reason not in ["stop", None]:
+                        if not yielded_any:
+                            yield {"error": f"SLM generation failed (Finish Reason: {choice.finish_reason})"}
+                        return
+                        
+                    # 2. Extract standard text
+                    content = choice.delta.content
                     if content:
                         yielded_any = True
                         yield content
                         # Artificial delay to drip-feed tokens, mimicking slower local SLM hardware
                         await asyncio.sleep(0.02)
+                        
+                # 3. Catch completely empty successful generations
+                if not yielded_any:
+                    yield {"error": "SLM returned a successful connection but generated no text. (Context window may be exhausted)"}
                 
                 return  # Exit the generator completely on successful stream completion
                 
@@ -136,8 +153,8 @@ async def call_local_llm_stream(messages: list[dict], max_retries: int = 3):
             await asyncio.sleep(delay)
             delay *= 2
 
-
-async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3):
+# 1. Add max_tokens to the signature to prevent TypeErrors from the router
+async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_tokens: int = 4096):
     """
     Streams the response from the designated Cloud LLM (Gemini or OpenAI).
     Translates standard OpenAI-style message schemas into Gemini's proprietary schema if needed.
@@ -159,7 +176,7 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3):
         try:
             if USE_GEMINI_CLOUD:
                 # --- GOOGLE GEMINI LOGIC ---
-                model_name = "gemini-1.5-flash" 
+                model_name = "gemini-3.5-flash" 
                 logger.info(f"Routing to Cloud LLM (Gemini - {model_name}) (Attempt {attempt + 1}/{max_retries})...")
                 api_key = os.getenv("GEMINI_API_KEY")
                 
@@ -182,7 +199,8 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3):
                 if system_instruction:
                     payload["systemInstruction"] = system_instruction
 
-                async with httpx.AsyncClient(timeout=60.0) as client:
+                # 300.0 second timeout for complex reasoning tasks
+                async with httpx.AsyncClient(timeout=300.0) as client:
                     async with client.stream("POST", url, json=payload) as response:
                         response.raise_for_status()
                         async for line in response.aiter_lines():
@@ -193,15 +211,30 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3):
                                 
                                 try:
                                     data = json.loads(data_str)
-                                    # Safely navigate Gemini's deeply nested response dictionary
+                                    
+                                    # 1. Catch Google Safety Blocks (Prompt rejected outright)
+                                    if "promptFeedback" in data and "blockReason" in data["promptFeedback"]:
+                                        reason = data["promptFeedback"]["blockReason"]
+                                        yield {"error": f"Google API blocked the prompt (Reason: {reason})"}
+                                        return
+                                        
                                     candidates = data.get("candidates", [])
-                                    if candidates and "content" in candidates[0]:
-                                        parts = candidates[0]["content"].get("parts", [])
-                                        if parts and "text" in parts[0]:
-                                            content = parts[0]["text"]
-                                            if content:
-                                                yielded_any = True
-                                                yield content
+                                    if candidates:
+                                        # 2. Catch generation failures (Model stopped unexpectedly)
+                                        if "finishReason" in candidates[0] and candidates[0]["finishReason"] not in ["STOP", ""]:
+                                            reason = candidates[0]["finishReason"]
+                                            if not yielded_any:
+                                                yield {"error": f"Google API refused generation (Finish Reason: {reason})"}
+                                            return
+                                            
+                                        # 3. Standard Text Extraction
+                                        if "content" in candidates[0]:
+                                            parts = candidates[0]["content"].get("parts", [])
+                                            if parts and "text" in parts[0]:
+                                                content = parts[0]["text"]
+                                                if content:
+                                                    yielded_any = True
+                                                    yield content
                                 except json.JSONDecodeError:
                                     pass # Silently ignore partial JSON chunks during the active stream
                                     

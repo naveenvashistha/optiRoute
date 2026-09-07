@@ -54,11 +54,11 @@
   justify-content: flex-start;
 }
 
-/* User Bubble */
+/* User Bubble (Updated to professional Slate-Grey) */
 .user-bubble {
   max-width: 75%;
   padding: 0.85rem 1.25rem;
-  background-color: #2563eb;
+  background-color: #475569; 
   color: #ffffff;
   border-radius: 1.25rem 1.25rem 0.25rem 1.25rem;
   font-size: 0.95rem;
@@ -105,21 +105,45 @@
   margin: 2.5rem 0;
 }
 
-.ai-content-canvas ul, 
+.ai-content-canvas ul {
+  margin-left: 1rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
 .ai-content-canvas ol {
   margin-left: 1rem;
   margin-bottom: 1.5rem;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
+  list-style-type: decimal;
 }
 
 .ai-content-canvas li {
   margin-bottom: 0.75rem; 
   padding-left: 0.25rem;
+  display: list-item;
 }
 
 .ai-content-canvas strong {
   color: #f3f4f6;
   font-weight: 600;
+}
+
+.ai-content-canvas a {
+  color: #38bdf8; /* Bright sky blue */
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.ai-content-canvas a:hover {
+  border-bottom: 1px solid #38bdf8;
+}
+
+.ai-content-canvas em {
+  color: #94a3b8; /* Muted slate for italics */
+  font-style: italic;
 }
 
 /* ── Markdown Tables & Blockquotes ── */
@@ -274,11 +298,11 @@
   resize: none;
   outline: none;
   line-height: 24px; 
-  padding: 8px 0; /* 8px top + 24px text + 8px bottom = 40px footprint */
+  padding: 8px 0; 
   margin: 0;
   min-height: 40px; 
   max-height: 200px;
-  box-sizing: border-box; /* CRITICAL: Syncs React's scrollHeight with CSS padding */
+  box-sizing: border-box; 
 }
 
 .input-box-wrapper textarea::-webkit-scrollbar {
@@ -352,14 +376,14 @@
   display: flex;
   gap: 0.25rem;
   margin-top: 0.4rem;
-  opacity: 1; /* Force permanent visibility */
+  opacity: 1; 
   visibility: visible;
 }
 
 .action-btn {
   background: transparent;
   border: none;
-  color: #ffffff; /* Forces white color instead of grey */
+  color: #ffffff; 
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -375,7 +399,7 @@
   opacity: 1;
 }
 
-/* Master override for all Action Icons (Copy, Edit, Regenerate) */
+/* Master override for all Action Icons */
 .action-btn svg, .action-icon-btn svg {
   width: 20px !important;
   height: 20px !important;
