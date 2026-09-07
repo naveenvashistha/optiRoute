@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+/* ── Global Resets for OptiRoute Layout ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  
+  /* CRITICAL: Prevents entire page from scrolling. 
+     Scroll is handled individually by the chat-history container */
+  overflow: hidden; 
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

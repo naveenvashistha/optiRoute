@@ -1,12 +1,13 @@
 fastapi
 uvicorn[standard]
 python-dotenv
+pydantic
 redisvl
 fastembed
-logging
 joblib
 scikit-learn
 httpx
 openai
 torch
 transformers
+numpy

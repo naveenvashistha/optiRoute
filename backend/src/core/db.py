@@ -1,4 +1,4 @@
-# src/core/redis_db.py
+# src/core/db.py
 
 import logging
 from redisvl.index import SearchIndex

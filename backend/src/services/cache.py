@@ -1,4 +1,5 @@
 import logging
+import numpy as np
 from redisvl.query import VectorQuery
 from src.services.embedding import get_embedding
 from src.core.config import settings
@@ -16,7 +17,7 @@ def check_cache(user_query: str) -> str | None:
         query_vector = get_embedding(user_query)
         
         # Build a RedisVL VectorQuery
-        # We ask it to return exactly 1 result (num_results=1) based on our vector
+        # RedisVL automatically handles the byte-conversion for lists inside VectorQuery
         v_query = VectorQuery(
             vector=query_vector,
             vector_field_name="embedding",
@@ -46,6 +47,7 @@ def check_cache(user_query: str) -> str | None:
         logger.error(f"Error querying semantic cache: {e}")
         return None
 
+
 def save_to_cache(user_query: str, answer: str):
     """
     Embeds a new query and saves the query, answer, and vector to RedisVL.
@@ -53,11 +55,15 @@ def save_to_cache(user_query: str, answer: str):
     try:
         query_vector = get_embedding(user_query)
         
+        # Convert the raw Python list into a 32-bit float byte string.
+        # This prevents the redis-py DataError during HSET operations.
+        vector_bytes = np.array(query_vector, dtype=np.float32).tobytes()
+        
         # RedisVL's load() method takes a list of dictionaries to insert
         record = {
             "query": user_query,
             "answer": answer,
-            "embedding": query_vector
+            "embedding": vector_bytes
         }
         
         # We use a custom TTL for the keys during insertion
