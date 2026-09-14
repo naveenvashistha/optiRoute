@@ -3,7 +3,7 @@ import TrafficFunnel from "./trafficFunnel";
 import { useTelemetry } from "../../context/metrics";
 import { formatCurrency, formatNumber, formatPercentage } from "../../utils/formatter";
 
-export default function Dashboard({ onClose }) {
+export default function Dashboard() {
   const { stats } = useTelemetry();
 
   const avgLatency =
@@ -17,10 +17,9 @@ export default function Dashboard({ onClose }) {
       : 0;
 
   return (
-    <div className="flex flex-col h-full w-full max-w-sm xl:max-w-md p-5 gap-3 bg-[#1e2330]/40 border-l border-slate-700/50 overflow-y-auto">
+    <div className="flex flex-col w-full gap-5">
       
-      {/* 2x2 Metrics Grid */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <MetricCard
           title="Est. Cost Saved"
           value={formatCurrency(stats.costSavedUsd)}
@@ -32,29 +31,28 @@ export default function Dashboard({ onClose }) {
         <MetricCard
           title="Tokens Offloaded"
           value={formatNumber(stats.tokensOffloaded)}
-          subtitle="Via Cache & Local SLM"
+          subtitle="Via Cache & Local"
           valueColor="text-purple-400"
           type="tokens"
         />
 
         <MetricCard
-          title="Avg Response Time"
+          title="Avg Response"
           value={`${avgLatency}ms`}
-          subtitle="Blended across all routes"
+          subtitle="Blended All Routes"
           valueColor="text-sky-400"
           type="time"
         />
 
         <MetricCard
-          title="Bypass Intent Rate"
+          title="Bypass Rate"
           value={formatPercentage(bypassRate)}
-          subtitle="MLP Classifier output"
+          subtitle="MLP Classifier"
           valueColor="text-amber-400"
           type="intent"
         />
       </div>
 
-      {/* Traffic Distribution Funnel */}
       <TrafficFunnel
         totalReqs={stats.totalRequests}
         hits={stats.routeCounts.hits}
