@@ -1,11 +1,7 @@
 @import "tailwindcss";
 
 /* ── Global Resets for OptiRoute Layout ── */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+
 
 html, body, #root {
   width: 100vw;
