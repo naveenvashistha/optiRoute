@@ -12,7 +12,6 @@ const ChatInterface = () => {
     isTyping,
     loadingStatus,
     isReconnecting,
-    isBackendDirty,
     executePrompt,
     handleStopGenerating,
   } = useChatEngine();
@@ -38,15 +37,13 @@ const ChatInterface = () => {
     const uiMessages = messages.slice(0, index);
     uiMessages.push({ role: "user", content: editDraft.trim() });
     setEditingIndex(null);
-    isBackendDirty.current = true;
-    executePrompt(uiMessages);
+    executePrompt(uiMessages, index);
   };
 
   const handleRegenerate = (index) => {
     if (isTyping) return;
     const uiMessages = messages.slice(0, index);
-    isBackendDirty.current = true;
-    executePrompt(uiMessages);
+    executePrompt(uiMessages, index - 1);
   };
 
   const handleCopyMessage = (text, index) => {
@@ -99,6 +96,20 @@ const ChatInterface = () => {
         ref={chatHistoryRef}
         onScroll={handleScroll}
       >
+        {/* Render a static greeting if history is empty */}
+        {messages.length === 0 && (
+          <div className="message-wrapper ai-wrapper">
+            <div className="message-bubble ai-bubble">
+              Hello! I am connected behind the{" "}
+              <strong>Smart API Gateway</strong>.<br />
+              <br />
+              Ask me a general fact, a coding question, or to write something
+              unique.
+            </div>
+          </div>
+        )}
+
+        {/* The dynamic message map (Index 0 is now guaranteed to be the user's first message) */}
         {messages.map((msg, index) => (
           <MessageBubble
             key={index}
