@@ -29,7 +29,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @param {number} [maxRetries=3] - Maximum number of connection attempts before permanently failing.
  */
 export const sendMessageToGateway = async (
-  messages,
+  payload,
   onChunk,
   onTelemetry,
   onError,
@@ -46,7 +46,7 @@ export const sendMessageToGateway = async (
       const response = await fetch(`${API_BASE_URL}/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages }),
+        body: JSON.stringify(payload),
         signal: abortSignal, // Attach the abort signal to the network request
       });
 
