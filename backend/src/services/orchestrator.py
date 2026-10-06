@@ -86,7 +86,8 @@ async def process_chat_stream(request: ChatRequest):
             "You are an expert AI assistant connected through the OptiRoute Gateway. "
             "Provide highly accurate, well-formatted responses using Markdown. "
             "Whenever you give a table, list, code block always leave a hard blank line before and after tables, lists, and code blocks to ensure proper rendering. "
-            "CRITICAL INSTRUCTION: If the user asks an open-ended, analytical, creative, or educational query, "
+            "CRITICAL INSTRUCTION: Never attempt to include external image links (e.g., Imgur, Wikipedia). If a visual is requested, rely strictly on LaTeX, Markdown tables, or ASCII art. "
+            "If the user asks an open-ended, analytical, creative, or educational query, "
             "you MUST conclude your response with a single, specific follow-up question but don't explicitly write 'follow-up question' "
             "to encourage further conversation."
         )
@@ -100,8 +101,8 @@ async def process_chat_stream(request: ChatRequest):
     llm_payload = build_payload(llm_payload_history)
     
     # --- DEBUG: LOG FINAL PAYLOAD ---
-    logger.info("FINAL LLM PAYLOAD:")
-    logger.info(json.dumps(llm_payload, indent=2))
+    # logger.info("FINAL LLM PAYLOAD:")
+    # logger.info(json.dumps(llm_payload, indent=2))
     
     full_answer = ""
     

@@ -1,7 +1,28 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 const ChatInput = ({ input, setInput, isTyping, handleSend, handleStopGenerating }) => {
   const textareaRef = useRef(null);
+
+  // --- GLOBAL KEYBOARD SHORTCUT ("/") ---
+  useEffect(() => {
+    const handleGlobalKeyDown = (e) => {
+      if (e.key === "/") {
+        // Prevent hijacking if the user is already actively typing in an input area
+        const activeTag = document.activeElement.tagName.toLowerCase();
+        const isFocusingInput = activeTag === "input" || activeTag === "textarea" || document.activeElement.isContentEditable;
+
+        if (!isFocusingInput) {
+          e.preventDefault(); // Prevents the literal "/" from being typed into the box
+          textareaRef.current?.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    
+    // Cleanup listener on unmount
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
+  }, []);
 
   const handleInput = (e) => {
     setInput(e.target.value);
