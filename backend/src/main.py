@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from fastapi.middleware.cors import CORSMiddleware
 from src.core.db import init_redis
 import logging
 
@@ -31,18 +30,6 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="OptiRoute API", version="1.0.0", lifespan=lifespan)
 
 
-# Allow the React dev server (port 3000) to call this API and exchange cookies.
-# allow_credentials=True is required for the qm_session cookie to be sent/received.
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000",
-                   "http://localhost:5173",
-                   "http://127.0.0.1:5173",],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 logger.info("OptiRoute initialized")
 
 # --- ADD THESE TWO LINES ---
@@ -54,4 +41,3 @@ def health():
     # Simple liveness check — used to verify the server is up.
     logger.info("Health check requested")
     return {"status": "ok"}
-    
