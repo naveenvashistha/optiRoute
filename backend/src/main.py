@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
+from src.core.config import settings
 from src.core.db import init_redis
 import logging
 
@@ -18,6 +19,8 @@ logger = logging.getLogger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Everything BEFORE the yield runs exactly once when the server boots
+    logger.info("Validating configuration...")
+    settings.validate()
     logger.info("Initializing infrastructure...")
     init_redis()
     logger.info("OptiRoute is fully booted and ready to accept traffic.")

@@ -86,6 +86,9 @@ Desktop.ini
 .env.test.local
 .env.production.local
 
+# Safe configuration template
+!backend/.env.example
+
 # Misc generated artifacts
 *.tmp
 *.temp
