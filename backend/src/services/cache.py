@@ -44,7 +44,7 @@ def check_cache(user_query: str) -> str | None:
         return None
 
     except Exception as e:
-        logger.error(f"Error querying semantic cache: {e}")
+        logger.error("Error querying semantic cache (%s)", type(e).__name__)
         return None
 
 
@@ -68,7 +68,7 @@ def save_to_cache(user_query: str, answer: str):
         
         # We use a custom TTL for the keys during insertion
         cache_index.load([record], ttl=settings.CACHE_TTL)
-        logger.info(f"Successfully cached query: '{user_query}'")
+        logger.info("Successfully cached answer")
         
     except Exception as e:
-        logger.error(f"Error saving to semantic cache: {e}")
+        logger.error("Error saving to semantic cache (%s)", type(e).__name__)

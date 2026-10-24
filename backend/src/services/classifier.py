@@ -43,10 +43,10 @@ def predict_intent(user_query: str) -> int:
         # If prob >= threshold, it evaluates to True (1), else False (0)
         intent = int(prob_class_1 >= settings.INTENT_THRESHOLD)
         
-        logger.info(f"Predicted intent '{intent}' (Prob: {prob_class_1:.3f}) for query: '{user_query}'")
+        logger.info(f"Predicted intent '{intent}' (Prob: {prob_class_1:.3f})")
         return intent
         
     except Exception as e:
         # Log the error and return a default intent (0 means bypass query) to avoid crashing the service and caching wrong query
-        logger.error(f"Error predicting intent: {e}")
+        logger.error("Error predicting intent (%s)", type(e).__name__)
         return 0
