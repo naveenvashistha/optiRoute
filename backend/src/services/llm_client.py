@@ -54,7 +54,7 @@ async def call_local_llm_stream(messages: list[dict], max_retries: int = 3, max_
                 # --- GROQ TESTING LOGIC ---
                 logger.info(f"Routing to Hosted SLM (Groq) (Attempt {attempt + 1}/{max_retries})...")
                 response = await groq_client.chat.completions.create(
-                    model="openai/gpt-oss-20b", 
+                    model=settings.GROQ_SLM_MODEL,
                     messages=messages,
                     temperature=0.7,
                     max_tokens=max_tokens, 
@@ -143,7 +143,7 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_
     """
     Streams the response from the designated Cloud LLM (Gemini or OpenAI).
     Implements Tier 2 Horizontal Cloud Failover: automatically pivots to Groq 
-    (openai/gpt-oss-120b) if the primary cloud provider fails.
+    using the configured Groq cloud model if the primary cloud provider fails.
     """
     attempt = 0
     delay = 1.0
@@ -155,7 +155,7 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_
         try:
             if current_provider == "gemini":
                 # --- GOOGLE GEMINI LOGIC (PRIMARY) ---
-                model_name = "gemini-3.5-flash" 
+                model_name = settings.GEMINI_MODEL
                 logger.info(f"Routing to Cloud LLM (Gemini - {model_name}) (Attempt {attempt + 1}/{max_retries})...")
                 api_key = os.getenv("GEMINI_API_KEY")
                 
@@ -213,7 +213,7 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_
                 
             elif current_provider == "groq":
                 # --- GROQ LOGIC (TIER 2 HORIZONTAL FALLBACK) ---
-                model_name = "openai/gpt-oss-120b"
+                model_name = settings.GROQ_CLOUD_MODEL
                 logger.info(f"Routing to Backup Cloud LLM (Groq - {model_name}) (Attempt {attempt + 1}/{max_retries})...")
                 
                 response = await groq_client.chat.completions.create(

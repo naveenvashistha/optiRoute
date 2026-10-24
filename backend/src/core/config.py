@@ -48,6 +48,10 @@ class Settings:
     # ── LLM Client Settings ───────────────────────────────────────────────────
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
     OPENAI_MODEL: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+    GROQ_SLM_MODEL: str = os.getenv("GROQ_SLM_MODEL", "openai/gpt-oss-20b")
+    GROQ_CLOUD_MODEL: str = os.getenv("GROQ_CLOUD_MODEL", "openai/gpt-oss-120b")
+    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
     
     OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
     LOCAL_MODEL_NAME: str = os.getenv("LOCAL_MODEL_NAME", "llama3.2:3b")
