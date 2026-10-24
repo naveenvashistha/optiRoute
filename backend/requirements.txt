@@ -2,6 +2,7 @@ fastapi
 uvicorn[standard]
 python-dotenv
 pydantic
+redis
 redisvl
 fastembed
 joblib

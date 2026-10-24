@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { sendMessageToGateway } from "../api/chatApi";
 import { showToast } from "../utils/toastNotifications";
 import { useTelemetry } from "../context/metrics";
@@ -11,13 +12,12 @@ export const useChatEngine = () => {
   const [isReconnecting, setIsReconnecting] = useState(false);
 
   const abortControllerRef = useRef(null);
+  
+  // Holds the session ID in volatile React memory. 
+  // It is destroyed completely if the user hits F5 (Refresh).
+  const sessionIdRef = useRef(null);
 
-  // Clears the backend process memory on mount
-  useEffect(() => {
-    fetch("http://localhost:8000/api/clear", { method: "POST" }).catch(
-      () => {},
-    );
-  }, []);
+  // The obsolete useEffect that fired POST /clear on mount has been permanently removed.
 
   // Cycles through placeholder statuses while waiting for first network chunk
   useEffect(() => {
@@ -47,9 +47,15 @@ export const useChatEngine = () => {
   };
 
   const executePrompt = async (uiMessages, editIndex = null) => {
-    // Construct an ultra-lightweight payload containing ONLY the target message
+    // Generate a secure UUID if this is the very first message of the session
+    if (!sessionIdRef.current) {
+      sessionIdRef.current = uuidv4();
+    }
+
+    // Construct the lightweight payload containing ONLY the target message and the UUID
     const networkPayload = {
       messages: [uiMessages[uiMessages.length - 1]],
+      session_id: sessionIdRef.current,
     };
 
     // Attach the truncation index if this is an edit or regeneration

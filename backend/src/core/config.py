@@ -14,8 +14,12 @@ class Settings:
     REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379")
     
     # Time-To-Live in seconds (e.g., 3600 = 1 hour). 
-    # Redis will automatically delete entries older than this.
+    # Redis will automatically delete semantic cache entries older than this.
     CACHE_TTL: int = int(os.getenv("CACHE_TTL", "3600"))
+
+    # Time-To-Live for active chat sessions (default 24 hours = 86400 seconds).
+    # Enables users to leave tabs open overnight without losing history.
+    REDIS_SESSION_TTL: int = int(os.getenv("REDIS_SESSION_TTL", "86400"))
 
     # ── Embedding & Similarity Settings ───────────────────────────────────────
     VECTOR_DIMENSION: int = int(os.getenv("VECTOR_DIMENSION", "384"))
@@ -47,6 +51,11 @@ class Settings:
     
     OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
     LOCAL_MODEL_NAME: str = os.getenv("LOCAL_MODEL_NAME", "llama3.2:3b")
+    OLLAMA_NUM_CTX: int = int(os.getenv("OLLAMA_NUM_CTX", "4096"))
+
+    # --- Routing Provider Toggles ---
+    SLM_PROVIDER: str = os.getenv("SLM_PROVIDER", "groq").lower()
+    CLOUD_PROVIDER: str = os.getenv("CLOUD_PROVIDER", "gemini").lower()
 
     # ── RedisVL Schema Definition ──────────────────────────────────────────────
     # We define the RedisVL index structure declaratively here.
