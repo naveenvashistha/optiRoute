@@ -211,6 +211,5 @@ async def process_chat_stream(request: ChatRequest):
         intent=intent,
         user_query=user_query, 
         final_answer=full_answer,
-        session_id=session_id  # per user session metric sent
     )
     yield f"data: {json.dumps({'telemetry': telemetry})}\n\n"

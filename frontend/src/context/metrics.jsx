@@ -28,7 +28,7 @@ export function TelemetryProvider({ children }) {
       if (normalizedRoute.includes("CACHE")) {
         routeKey = "hits";
       } else if (
-        normalizedRoute.includes("LOCAL_SLM")
+        normalizedRoute.includes("LOCAL_SLM") || normalizedRoute.includes("SLM_EMERGENCY_FALLBACK")
       ) {
         routeKey = "local";
       }

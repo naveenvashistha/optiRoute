@@ -52,7 +52,7 @@ def generate_telemetry_payload(
         total_tokens = input_tokens + output_tokens
         
         # 3. Calculate savings (We only save money if we didn't hit the Cloud!)
-        if route in ["CACHE", "LOCAL_SLM"]:
+        if route in ["CACHE", "LOCAL_SLM", "SLM_EMERGENCY_FALLBACK"]:
             tokens_offloaded = total_tokens
             cost_saved_usd = calculate_cost_saved(input_tokens, output_tokens)
         else:
