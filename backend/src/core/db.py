@@ -2,6 +2,8 @@
 
 import logging
 import redis
+from redis.backoff import NoBackoff
+from redis.retry import Retry
 from redisvl.index import SearchIndex
 from src.core.config import settings
 
@@ -25,6 +27,20 @@ cache_index = SearchIndex.from_dict(
 # it stores into standard Python strings, eliminating the need to manually decode 
 # UTF-8 every time we fetch a chat history.
 redis_client = redis.Redis(connection_pool=pool, decode_responses=True)
+
+def is_redis_ready() -> bool:
+    """Probe Redis with short timeouts and close the dedicated probe connection."""
+    try:
+        with redis.Redis.from_url(
+            settings.REDIS_URL,
+            socket_connect_timeout=1.0,
+            socket_timeout=1.0,
+            retry=Retry(NoBackoff(), 0),
+        ) as probe:
+            return bool(probe.ping())
+    except redis.RedisError:
+        return False
+
 
 def init_redis():
     """

@@ -1,7 +1,8 @@
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 from src.core.config import settings
-from src.core.db import init_redis
+from src.core.db import init_redis, is_redis_ready
 import logging
 
 # ── Logging setup ─────────────────────────────────────────────────────────────
@@ -44,3 +45,11 @@ def health():
     # Simple liveness check — used to verify the server is up.
     logger.info("Health check requested")
     return {"status": "ok"}
+
+
+@app.get("/api/ready")
+def readiness():
+    """Report whether the backend can reach its required session database."""
+    if not is_redis_ready():
+        return JSONResponse(status_code=503, content={"status": "not_ready"})
+    return {"status": "ready"}
