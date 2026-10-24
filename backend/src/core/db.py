@@ -24,7 +24,7 @@ cache_index = SearchIndex.from_dict(
 # By setting decode_responses=True, Redis automatically converts the raw bytes 
 # it stores into standard Python strings, eliminating the need to manually decode 
 # UTF-8 every time we fetch a chat history.
-redis_client = redis.Redis.from_url(connection_pool=pool, decode_responses=True)
+redis_client = redis.Redis(connection_pool=pool, decode_responses=True)
 
 def init_redis():
     """
