@@ -10,6 +10,7 @@ venv/
 env/
 ENV/
 .python-version
+!backend/.python-version
 pip-log.txt
 pip-delete-this-directory.txt
 

@@ -1,14 +1,16 @@
-fastapi
-uvicorn[standard]
-python-dotenv
-pydantic
-redis
-redisvl
-fastembed
-joblib
-scikit-learn
-httpx
-openai
-torch
-transformers
-numpy
+# Direct dependency versions from the working Python 3.11 environment.
+# Install CPU-only PyTorch first, as documented in README.md.
+fastapi==0.141.1
+uvicorn[standard]==0.52.3
+python-dotenv==1.2.2
+pydantic==2.13.4
+redis==7.4.1
+redisvl==0.26.0
+fastembed==0.8.0
+joblib==1.5.3
+scikit-learn==1.9.0
+httpx==0.28.1
+openai==3.6.0
+torch==2.13.0
+transformers==5.16.1
+numpy==2.2.6
