@@ -53,10 +53,34 @@ export const sendMessageToGateway = async (
       // 2. Handle HTTP Errors (e.g., 400 Bad Request, 429 Rate Limit, 500 Server Error)
       if (!response.ok) {
         if (response.status >= 400 && response.status < 500) {
-          const errorData = await response.json().catch(() => ({}));
-          throw new Error(
-            errorData.detail || `Client Error: ${response.status}`,
-          );
+          const errorData = await response.json().catch(() => null);
+          const detail = errorData?.detail;
+          let message = `Request rejected (HTTP ${response.status}).`;
+
+          if (response.status === 413) {
+            message = "Request too large. Please send less text.";
+          } else if (response.status === 429) {
+            message = "Too many chat requests or all chat slots are busy. Please try again shortly.";
+          } else if (Array.isArray(detail)) {
+            // FastAPI returns validation errors as a list, not a message string.
+            message = detail
+              .filter((item) => typeof item?.msg === "string")
+              .map((item) => {
+                const field = Array.isArray(item.loc)
+                  ? item.loc.filter((part) => part !== "body").join(".")
+                  : "";
+                return field ? `${field}: ${item.msg}` : item.msg;
+              })
+              .join("; ") || "Invalid request. Please check your input.";
+          } else if (typeof detail === "string" && detail.trim()) {
+            message = detail;
+          } else if (response.status === 422) {
+            message = "Invalid request. Please check your input.";
+          }
+
+          // A rejected 4xx request needs user action, not an automatic retry.
+          onError(message);
+          return;
         }
         throw new Error(`Server Error: ${response.status}`);
       }
@@ -128,9 +152,9 @@ export const sendMessageToGateway = async (
         `Gateway connection failed (Attempt ${attempt}/${maxRetries}): ${error.message}`,
       );
 
-      // 2. Fatal Errors: Do not retry if the server explicitly rejected the request (4xx Client Error),
-      // or if we have exhausted all our retry attempts.
-      if (attempt >= maxRetries || error.message.includes("Client Error")) {
+      // 2. Stop after exhausting retries for network failures and server errors.
+      // HTTP 4xx rejections were already handled above using the status code.
+      if (attempt >= maxRetries) {
         onError(error.message);
         return;
       }
