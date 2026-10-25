@@ -10,6 +10,11 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 class Settings:
+    # Application log verbosity. Server access logs are configured separately.
+    LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO").strip().upper()
+    if LOG_LEVEL not in {"DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"}:
+        raise ValueError("LOG_LEVEL must be one of: DEBUG, INFO, WARNING, ERROR, CRITICAL.")
+
     # ── Redis Connection Settings ─────────────────────────────────────────────
     REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379")
     

@@ -14,6 +14,7 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)-7s | %(name)s | %(message)s",
     datefmt="%H:%M:%S",
 )
+logging.getLogger("src").setLevel(settings.LOG_LEVEL)
 logger = logging.getLogger(__name__)
 
 # ── Lifespan Context ──────────────────────────────────────────────────────────
@@ -43,7 +44,7 @@ app.include_router(chat.router, prefix="/api")
 @app.get("/api/health")
 def health():
     # Simple liveness check — used to verify the server is up.
-    logger.info("Health check requested")
+    logger.debug("Health check requested")
     return {"status": "ok"}
 
 
