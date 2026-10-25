@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 const ChatInput = ({ input, setInput, isTyping, handleSend, handleStopGenerating }) => {
   const textareaRef = useRef(null);

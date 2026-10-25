@@ -101,7 +101,7 @@ export const sendMessageToGateway = async (
               if (data.telemetry) {
                 onTelemetry(data.telemetry);
               }
-            } catch (e) {
+            } catch {
               // Silently ignore JSON parse errors. This is expected behavior if an SSE chunk 
               // splits a JSON object perfectly in half across two TCP packets. It will be 
               // caught and completed in the next reader cycle.

@@ -1,5 +1,3 @@
-import React from "react";
-
 function MetricCard({ title, value, subtitle, valueColor = "text-white", type }) {
   const icons = {
     cost: {
