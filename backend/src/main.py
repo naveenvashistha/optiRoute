@@ -1,7 +1,8 @@
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
-from fastapi.middleware.cors import CORSMiddleware
-from src.core.db import init_redis
+from src.core.config import settings
+from src.core.db import init_redis, is_redis_ready
 import logging
 
 # ── Logging setup ─────────────────────────────────────────────────────────────
@@ -13,12 +14,15 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)-7s | %(name)s | %(message)s",
     datefmt="%H:%M:%S",
 )
+logging.getLogger("src").setLevel(settings.LOG_LEVEL)
 logger = logging.getLogger(__name__)
 
 # ── Lifespan Context ──────────────────────────────────────────────────────────
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Everything BEFORE the yield runs exactly once when the server boots
+    logger.info("Validating configuration...")
+    settings.validate()
     logger.info("Initializing infrastructure...")
     init_redis()
     logger.info("OptiRoute is fully booted and ready to accept traffic.")
@@ -31,18 +35,6 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="OptiRoute API", version="1.0.0", lifespan=lifespan)
 
 
-# Allow the React dev server (port 3000) to call this API and exchange cookies.
-# allow_credentials=True is required for the qm_session cookie to be sent/received.
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000",
-                   "http://localhost:5173",
-                   "http://127.0.0.1:5173",],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 logger.info("OptiRoute initialized")
 
 # --- ADD THESE TWO LINES ---
@@ -52,6 +44,13 @@ app.include_router(chat.router, prefix="/api")
 @app.get("/api/health")
 def health():
     # Simple liveness check — used to verify the server is up.
-    logger.info("Health check requested")
+    logger.debug("Health check requested")
     return {"status": "ok"}
-    
+
+
+@app.get("/api/ready")
+def readiness():
+    """Report whether the backend can reach its required session database."""
+    if not is_redis_ready():
+        return JSONResponse(status_code=503, content={"status": "not_ready"})
+    return {"status": "ready"}

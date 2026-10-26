@@ -135,7 +135,7 @@ async def process_chat_stream(request: ChatRequest):
                     )
                     
                     if is_token_or_rate_error and not full_answer:
-                        logger.warning(f"SLM Rate/Context limit reached ({chunk['error']}). Triggering silent Cloud Fallback.")
+                        logger.warning("SLM rate/context limit reached. Triggering cloud fallback.")
                         need_fallback = True
                         break 
                         

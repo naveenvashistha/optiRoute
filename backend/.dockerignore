@@ -1,0 +1,18 @@
+# Only send files required by this backend image to the Docker builder.
+**
+!requirements.txt
+!src/
+!src/**
+!models/
+!models/**
+
+# Exclude secrets and generated files even inside the included directories.
+**/.env
+**/.env.*
+**/__pycache__/
+**/*.py[cod]
+**/.cache/
+**/.cache*/
+**/*.log
+**/*.ipynb
+**/*.csv

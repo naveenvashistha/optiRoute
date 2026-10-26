@@ -28,7 +28,7 @@ def sync_session_state(session_id: str, messages: list, edit_index: int = None) 
             # The user clicked Edit/Regenerate. Slice off the abandoned future timeline.
             history = history[:edit_index]
             history.append({"role": "user", "content": messages[-1].content})
-            logger.info(f"State mutated for session {session_id} at index {edit_index}.")
+            logger.info("Conversation edited at index %s", edit_index)
             
         elif len(messages) > 1 or not history:
             # Fallback for unexpected payloads or initialization
@@ -45,7 +45,7 @@ def sync_session_state(session_id: str, messages: list, edit_index: int = None) 
         return history
         
     except Exception as e:
-        logger.error(f"Redis connection failed during sync for session {session_id}: {e}")
+        logger.error("Redis conversation sync failed (%s)", type(e).__name__)
         # HARD FAIL: We refuse to process the prompt if we cannot secure the state.
         raise RuntimeError("The session database is currently offline. Please try again.")
 
@@ -59,7 +59,7 @@ def update_global_state(session_id: str, new_history: list):
     try:
         redis_client.set(redis_key, json.dumps(new_history), ex=settings.REDIS_SESSION_TTL)
     except Exception as e:
-        logger.error(f"Failed to save truncated global state for session {session_id}: {e}")
+        logger.error("Failed to save truncated conversation (%s)", type(e).__name__)
         raise RuntimeError("Failed to update memory limits. Please try again.")
 
 
@@ -84,6 +84,6 @@ def append_assistant_response(session_id: str, content: str):
             redis_client.set(redis_key, json.dumps(history), ex=settings.REDIS_SESSION_TTL)
             
     except Exception as e:
-        logger.error(f"Failed to append assistant response for session {session_id}: {e}")
+        logger.error("Failed to append assistant response (%s)", type(e).__name__)
         # We don't raise a RuntimeError here because the AI has already streamed the text 
         # to the user. We just log the failure. The next prompt will likely fail cleanly in sync_session_state.

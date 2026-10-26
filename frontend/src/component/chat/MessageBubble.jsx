@@ -1,4 +1,3 @@
-import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -63,7 +62,9 @@ const MessageBubble = ({
               remarkPlugins={[remarkGfm, remarkMath]}
               rehypePlugins={[rehypeRaw, [rehypeKatex, { throwOnError: false, errorColor: "#f43f5e", macros: { "\\slashed": "\\not{#1}" } }]]}
               components={{
-                code({ node, inline, className, children, ...props }) {
+                code({ inline, className, children, ...props }) {
+                  // Keep markdown syntax-tree metadata off the DOM element.
+                  delete props.node;
                   const match = /language-(\w+)/.exec(className || "");
                   const codeString = String(children).replace(/\n$/, "");
                   return !inline && match ? (

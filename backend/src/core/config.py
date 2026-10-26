@@ -10,6 +10,11 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 class Settings:
+    # Application log verbosity. Server access logs are configured separately.
+    LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO").strip().upper()
+    if LOG_LEVEL not in {"DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"}:
+        raise ValueError("LOG_LEVEL must be one of: DEBUG, INFO, WARNING, ERROR, CRITICAL.")
+
     # ── Redis Connection Settings ─────────────────────────────────────────────
     REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379")
     
@@ -47,7 +52,13 @@ class Settings:
 
     # ── LLM Client Settings ───────────────────────────────────────────────────
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+    GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
+    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
     OPENAI_MODEL: str = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+
+    GROQ_SLM_MODEL: str = os.getenv("GROQ_SLM_MODEL", "openai/gpt-oss-20b")
+    GROQ_CLOUD_MODEL: str = os.getenv("GROQ_CLOUD_MODEL", "openai/gpt-oss-120b")
+    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
     
     OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
     LOCAL_MODEL_NAME: str = os.getenv("LOCAL_MODEL_NAME", "llama3.2:3b")
@@ -80,5 +91,36 @@ class Settings:
             }
         ]
     }
+
+    def validate(self):
+        """Reject missing provider configuration without making external API calls."""
+        errors = []
+        required = set()
+
+        if self.SLM_PROVIDER not in {"groq", "ollama"}:
+            errors.append("SLM_PROVIDER must be one of: groq, ollama.")
+        if self.CLOUD_PROVIDER not in {"gemini", "openai", "groq"}:
+            errors.append("CLOUD_PROVIDER must be one of: gemini, openai, groq.")
+
+        if self.SLM_PROVIDER == "groq":
+            required.update({"GROQ_API_KEY", "GROQ_SLM_MODEL"})
+        elif self.SLM_PROVIDER == "ollama":
+            required.update({"OLLAMA_BASE_URL", "LOCAL_MODEL_NAME"})
+
+        if self.CLOUD_PROVIDER == "gemini":
+            required.update({"GEMINI_API_KEY", "GEMINI_MODEL"})
+        elif self.CLOUD_PROVIDER == "openai":
+            required.update({"OPENAI_API_KEY", "OPENAI_MODEL"})
+
+        # Groq is either the cloud provider or the enabled backup for Gemini/OpenAI.
+        if self.CLOUD_PROVIDER in {"gemini", "openai", "groq"}:
+            required.update({"GROQ_API_KEY", "GROQ_CLOUD_MODEL"})
+
+        for name in sorted(required):
+            if not getattr(self, name).strip():
+                errors.append(f"{name} must be set for the configured providers and fallbacks.")
+
+        if errors:
+            raise ValueError("Configuration errors:\n- " + "\n- ".join(errors))
 
 settings = Settings()

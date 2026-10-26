@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Toaster } from "react-hot-toast";
+import { useState, useRef, useEffect } from "react";
 import { useChatEngine } from "../../hooks/useChatEngine";
 import { useAutoScroll } from "../../hooks/useAutoScroll";
 import MessageBubble from "./MessageBubble";

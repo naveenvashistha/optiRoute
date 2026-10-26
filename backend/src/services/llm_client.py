@@ -37,6 +37,29 @@ groq_client = AsyncOpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
+
+def _safe_provider_error(error: Exception) -> str:
+    """Keep error categories/status codes, never provider URLs or response bodies."""
+    summary = type(error).__name__
+    status = getattr(error, "status_code", None)
+    if status is None:
+        status = getattr(getattr(error, "response", None), "status_code", None)
+    if isinstance(status, int) and 100 <= status <= 599:
+        summary += f" (HTTP {status})"
+
+    # Preserve only the fixed markers used by existing fallback routing.
+    error_text = str(error).lower()
+    markers = [
+        marker for marker in (
+            "length", "too large", "rate_limit", "rate limit", "429",
+            "tpm", "tokens per minute", "context window",
+        ) if marker in error_text
+    ]
+    if markers:
+        summary += "; " + ", ".join(markers)
+    return summary
+
+
 async def call_local_llm_stream(messages: list[dict], max_retries: int = 3, max_tokens: int = 4096):
     """
     Streams the response from the Local SLM.
@@ -54,7 +77,7 @@ async def call_local_llm_stream(messages: list[dict], max_retries: int = 3, max_
                 # --- GROQ TESTING LOGIC ---
                 logger.info(f"Routing to Hosted SLM (Groq) (Attempt {attempt + 1}/{max_retries})...")
                 response = await groq_client.chat.completions.create(
-                    model="openai/gpt-oss-20b", 
+                    model=settings.GROQ_SLM_MODEL,
                     messages=messages,
                     temperature=0.7,
                     max_tokens=max_tokens, 
@@ -69,7 +92,8 @@ async def call_local_llm_stream(messages: list[dict], max_retries: int = 3, max_
                     
                     if choice.finish_reason and choice.finish_reason not in ["stop", None]:
                         if not yielded_any:
-                            yield {"error": f"SLM generation failed (Finish Reason: {choice.finish_reason})"}
+                            reason = "length" if choice.finish_reason == "length" else "blocked"
+                            yield {"error": f"SLM generation failed (Finish Reason: {reason})"}
                         return
                         
                     content = choice.delta.content
@@ -117,23 +141,24 @@ async def call_local_llm_stream(messages: list[dict], max_retries: int = 3, max_
 
         except Exception as e:
             error_str = str(e).lower()
+            error_details = _safe_provider_error(e)
 
             if any(term in error_str for term in ["429", "rate_limit", "rate limit", "tpm"]):
-                logger.warning(f"Groq Rate Limit encountered immediately: {str(e)}")
-                yield {"error": f"Rate limit reached (429): {str(e)}"}
+                logger.warning("Groq rate limit encountered: %s", error_details)
+                yield {"error": f"Rate limit reached (429): {error_details}"}
                 return
 
             attempt += 1
-            logger.warning(f"SLM Stream Error (Attempt {attempt}): {str(e)}")
+            logger.warning("SLM stream error (attempt %s): %s", attempt, error_details)
             
             if yielded_any:
                 logger.error("Stream dropped mid-generation.")
-                yield {"error": f"The generation was interrupted. ({str(e)})"}
+                yield {"error": f"The generation was interrupted. ({error_details})"}
                 return
                 
             if attempt >= max_retries:
                 logger.error("Max retries exhausted for SLM.")
-                yield {"error": f"Local SLM failed after {max_retries} attempts. ({str(e)})"}
+                yield {"error": f"Local SLM failed after {max_retries} attempts. ({error_details})"}
                 return
                 
             await asyncio.sleep(delay)
@@ -143,7 +168,7 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_
     """
     Streams the response from the designated Cloud LLM (Gemini or OpenAI).
     Implements Tier 2 Horizontal Cloud Failover: automatically pivots to Groq 
-    (openai/gpt-oss-120b) if the primary cloud provider fails.
+    using the configured Groq cloud model if the primary cloud provider fails.
     """
     attempt = 0
     delay = 1.0
@@ -155,11 +180,12 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_
         try:
             if current_provider == "gemini":
                 # --- GOOGLE GEMINI LOGIC (PRIMARY) ---
-                model_name = "gemini-3.5-flash" 
+                model_name = settings.GEMINI_MODEL
                 logger.info(f"Routing to Cloud LLM (Gemini - {model_name}) (Attempt {attempt + 1}/{max_retries})...")
                 api_key = os.getenv("GEMINI_API_KEY")
                 
-                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:streamGenerateContent?key={api_key}&alt=sse"
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:streamGenerateContent?alt=sse"
+                headers = {"x-goog-api-key": api_key}
                 
                 gemini_contents = []
                 system_instruction = None
@@ -176,7 +202,7 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_
                     payload["systemInstruction"] = system_instruction
 
                 async with httpx.AsyncClient(timeout=300.0) as client:
-                    async with client.stream("POST", url, json=payload) as response:
+                    async with client.stream("POST", url, json=payload, headers=headers) as response:
                         response.raise_for_status() # Raises Exception on 429/503 -> Triggers Groq Fallback
                         async for line in response.aiter_lines():
                             if line.startswith("data: "):
@@ -213,7 +239,7 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_
                 
             elif current_provider == "groq":
                 # --- GROQ LOGIC (TIER 2 HORIZONTAL FALLBACK) ---
-                model_name = "openai/gpt-oss-120b"
+                model_name = settings.GROQ_CLOUD_MODEL
                 logger.info(f"Routing to Backup Cloud LLM (Groq - {model_name}) (Attempt {attempt + 1}/{max_retries})...")
                 
                 response = await groq_client.chat.completions.create(
@@ -262,11 +288,12 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_
 
         except Exception as e:
             attempt += 1
-            logger.warning(f"Cloud LLM Stream Error ({current_provider.upper()}, Attempt {attempt}): {str(e)}")
+            error_details = _safe_provider_error(e)
+            logger.warning("Cloud stream error (%s, attempt %s): %s", current_provider.upper(), attempt, error_details)
             
             if yielded_any:
                 logger.error("Cloud stream dropped mid-generation.")
-                yield {"error": f"The cloud generation was interrupted. ({str(e)})"}
+                yield {"error": f"The cloud generation was interrupted. ({error_details})"}
                 return
                 
             # TIER 2 HORIZONTAL CLOUD FAILOVER
@@ -277,7 +304,7 @@ async def call_cloud_llm_stream(messages: list[dict], max_retries: int = 3, max_
                 
             if attempt >= max_retries:
                 logger.error("Max retries exhausted for all Cloud LLMs.")
-                yield {"error": f"All Cloud LLMs (Primary & Backup) failed after {max_retries} attempts. ({str(e)})"}
+                yield {"error": f"All Cloud LLMs (Primary & Backup) failed after {max_retries} attempts. ({error_details})"}
                 return
                 
             await asyncio.sleep(delay)

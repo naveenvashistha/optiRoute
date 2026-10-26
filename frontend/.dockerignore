@@ -1,0 +1,19 @@
+# Only send files needed to build and serve the frontend.
+**
+!package.json
+!package-lock.json
+!index.html
+!vite.config.js
+!nginx.conf
+!public/
+!public/**
+!src/
+!src/**
+
+# Keep secrets and generated files out of the included directories too.
+**/.env
+**/.env.*
+**/node_modules/
+**/.cache/
+**/.cache*/
+**/*.log
