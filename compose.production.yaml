@@ -1,0 +1,24 @@
+# Use alongside compose.yaml, with this file specified second.
+# IMAGE_TAG is the full Git commit SHA only; do not append an image digest.
+services:
+  backend:
+    image: "asia-south1-docker.pkg.dev/optiroute-512819/optiroute/backend:${IMAGE_TAG:?Set IMAGE_TAG to the full Git commit SHA}"
+    pull_policy: missing
+
+  frontend:
+    image: "asia-south1-docker.pkg.dev/optiroute-512819/optiroute/frontend:${IMAGE_TAG:?Set IMAGE_TAG to the full Git commit SHA}"
+    pull_policy: missing
+    volumes:
+      - type: bind
+        source: ./deploy/nginx-trusted-proxy.conf
+        target: /etc/nginx/conf.d/00-trusted-proxy.conf
+        read_only: true
+        bind:
+          create_host_path: false
+
+# Reuse the VM's existing bridge so Compose down/up cannot change its gateway.
+# A fresh VM must provision this network with gateway 172.18.0.1 before use.
+networks:
+  default:
+    external: true
+    name: optiroute_default
