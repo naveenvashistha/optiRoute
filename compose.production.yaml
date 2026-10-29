@@ -16,9 +16,12 @@ services:
         bind:
           create_host_path: false
 
-# Reuse the VM's existing bridge so Compose down/up cannot change its gateway.
-# A fresh VM must provision this network with gateway 172.18.0.1 before use.
+# Compose creates this bridge when needed, always using the gateway Nginx trusts.
 networks:
   default:
-    external: true
     name: optiroute_default
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/24
+          gateway: 172.18.0.1
