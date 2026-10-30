@@ -1,0 +1,4 @@
+# Accept only HTTP/HTTPS from the host-side proxy, before real-IP rewriting.
+# Keep this peer aligned with the production Docker bridge gateway.
+"172.18.0.1:http" http;
+"172.18.0.1:https" https;
