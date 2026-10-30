@@ -1,9 +1,17 @@
-name: Publish container images
+name: Build and deploy OptiRoute
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions: {}
+
+# Finish an active release; newer pushes wait rather than interrupting SSH.
+concurrency:
+  group: optiroute-production
+  cancel-in-progress: false
 
 jobs:
   publish-frontend:
@@ -146,3 +154,116 @@ jobs:
           image_uri="${IMAGE_NAME}:${GITHUB_SHA}"
           printf 'Published backend image: `%s`\n' "$image_uri" >> "$GITHUB_STEP_SUMMARY"
           printf 'Image digest: `%s`\n' "$IMAGE_DIGEST" >> "$GITHUB_STEP_SUMMARY"
+
+  deploy:
+    needs: [publish-frontend, publish-backend]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        shell: bash
+    env:
+      GCP_PROJECT_ID: optiroute-512819
+      GCP_ZONE: asia-south1-a
+      GCP_VM: optiroute-vm
+      GCP_WORKLOAD_IDENTITY_PROVIDER: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+
+    steps:
+      - name: Check required configuration
+        run: |
+          if [[ -z "$GCP_WORKLOAD_IDENTITY_PROVIDER" ]]; then
+            echo "::error::Set the GCP_WORKLOAD_IDENTITY_PROVIDER repository variable before running this workflow."
+            exit 1
+          fi
+          if [[ ! "$GITHUB_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Expected a full Git commit SHA."
+            exit 1
+          fi
+
+      - name: Check out release files
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
+        with:
+          project_id: ${{ env.GCP_PROJECT_ID }}
+          workload_identity_provider: ${{ env.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: github-deployer@optiroute-512819.iam.gserviceaccount.com
+
+      - name: Set up Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3
+
+      - name: Check whether this is still the current main commit
+        id: current-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          main_sha=$(curl --fail --silent --show-error \
+            --connect-timeout 10 --max-time 30 \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'Accept: application/vnd.github+json' \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/git/ref/heads/main" \
+            | jq -er '.object.sha')
+          if [[ "$main_sha" == "$GITHUB_SHA" ]]; then
+            echo 'deploy=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'deploy=false' >> "$GITHUB_OUTPUT"
+            printf 'Skipped deployment of `%s`: main has moved to `%s`.\n' \
+              "$GITHUB_SHA" "$main_sha" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload release files and deploy through IAP
+        if: steps.current-release.outputs.deploy == 'true'
+        run: |
+          ssh_options=(--project="$GCP_PROJECT_ID" --zone="$GCP_ZONE"
+            --tunnel-through-iap --quiet --ssh-key-expire-after=30m)
+          remote_dir=".optiroute-release-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          archive="$RUNNER_TEMP/optiroute-release.tar.gz"
+
+          # Explicit file list: never transfer .env files or OIDC credentials.
+          tar -czf "$archive" compose.yaml compose.production.yaml \
+            deploy/deploy.sh deploy/nginx-trusted-proxy.conf \
+            deploy/nginx-forwarded-scheme.map
+
+          gcloud compute ssh "$GCP_VM" "${ssh_options[@]}" \
+            --ssh-flag='-o ConnectTimeout=30' --ssh-flag='-o BatchMode=yes' \
+            --command="umask 077; mkdir '$remote_dir'"
+
+          gcloud compute scp "$archive" "$GCP_VM:$remote_dir/release.tar.gz" \
+            "${ssh_options[@]}" \
+            --scp-flag='-o ConnectTimeout=30' --scp-flag='-o BatchMode=yes'
+
+          gcloud compute ssh "$GCP_VM" "${ssh_options[@]}" \
+            --ssh-flag='-o ConnectTimeout=30' --ssh-flag='-o BatchMode=yes' \
+            --command="bash -se -- '$GITHUB_SHA' '$remote_dir'" <<'REMOTE'
+          set -euo pipefail
+          release_sha=$1
+          staging_name=$2
+          [[ "$staging_name" =~ ^\.optiroute-release-[0-9]+-[0-9]+$ ]]
+          staging_dir="$HOME/$staging_name"
+          trap 'rm -rf -- "$staging_dir"' EXIT
+
+          if ! sudo -n test -f /opt/optiroute/.env || \
+             ! sudo -n test -f /opt/optiroute/backend/.env; then
+            echo 'Prepare /opt/optiroute using deploy/deployment.md before deploying.' >&2
+            exit 1
+          fi
+          tar -xzf "$staging_dir/release.tar.gz" -C "$staging_dir"
+          sudo -n bash "$staging_dir/deploy/deploy.sh" "$release_sha" "$staging_dir"
+          REMOTE
+
+      - name: Verify public HTTPS readiness
+        if: steps.current-release.outputs.deploy == 'true'
+        run: |
+          curl --fail --silent --show-error --connect-timeout 5 --max-time 15 \
+            --retry 5 --retry-delay 2 --retry-all-errors \
+            https://optiroutee.tech/api/ready \
+            | jq -e '.status == "ready"' > /dev/null
+          printf 'Deployed `%s` successfully to https://optiroutee.tech.\n' \
+            "$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
