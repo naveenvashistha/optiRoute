@@ -9,7 +9,7 @@ jobs:
   check-authentication:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     permissions:
       contents: read
       id-token: write
@@ -50,3 +50,16 @@ jobs:
             --project="$GCP_PROJECT_ID" \
             --location="$GCP_REGION" \
             --format="yaml(name,format)"
+
+      - name: Verify deployment VM access through IAP
+        shell: bash
+        run: |
+          gcloud compute ssh optiroute-vm \
+            --project="$GCP_PROJECT_ID" \
+            --zone=asia-south1-a \
+            --tunnel-through-iap \
+            --quiet \
+            --ssh-key-expire-after=10m \
+            --ssh-flag='-o ConnectTimeout=30' \
+            --ssh-flag='-o BatchMode=yes' \
+            --command='set -eu; whoami; sudo -n whoami'
