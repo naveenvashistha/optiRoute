@@ -1,0 +1,40 @@
+# Use alongside compose.yaml, with this file specified second.
+# IMAGE_TAG is the full Git commit SHA only; do not append an image digest.
+services:
+  backend:
+    image: "asia-south1-docker.pkg.dev/optiroute-512819/optiroute/backend:${IMAGE_TAG:?Set IMAGE_TAG to the full Git commit SHA}"
+    pull_policy: missing
+    environment:
+      # Uvicorn enables proxy headers by default; trust only frontend Nginx.
+      FORWARDED_ALLOW_IPS: "172.18.0.10"
+
+  frontend:
+    image: "asia-south1-docker.pkg.dev/optiroute-512819/optiroute/frontend:${IMAGE_TAG:?Set IMAGE_TAG to the full Git commit SHA}"
+    pull_policy: missing
+    networks:
+      default:
+        # Stable source address for the backend's trusted-proxy setting.
+        ipv4_address: 172.18.0.10
+    volumes:
+      - type: bind
+        source: ./deploy/nginx-trusted-proxy.conf
+        target: /etc/nginx/conf.d/00-trusted-proxy.conf
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./deploy/nginx-forwarded-scheme.map
+        target: /etc/nginx/proxy-scheme.d/trusted-proxy.map
+        read_only: true
+        bind:
+          create_host_path: false
+
+# Compose creates this bridge when needed, always using the gateway Nginx trusts.
+networks:
+  default:
+    name: optiroute_default
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/24
+          gateway: 172.18.0.1
