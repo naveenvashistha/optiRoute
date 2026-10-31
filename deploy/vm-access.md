@@ -3,6 +3,9 @@
 This is the one-time access setup for GitHub Actions. It does not deploy images.
 Run the commands in **GCP Cloud Shell**, signed in as your personal project owner.
 Keep your existing VM SSH session open until the new connection succeeds.
+See [cloud setup](../docs/cloud-setup.md) for the preceding registry/VM steps and
+[the pipeline walkthrough](../docs/pipeline.md) for how the workflow uses this
+access after setup.
 
 ## 1. Prepare permissions and the IAP firewall rule
 
@@ -48,8 +51,8 @@ gcloud compute instances add-metadata optiroute-vm \
 
 OS Login replaces metadata-based SSH key authentication with IAM-controlled
 login. It can assign a different Linux username and home directory. The existing
-application directory and containers are not moved. We will handle the shared
-deployment directory separately.
+application directory and containers are not moved. The shared /opt deployment
+directory is prepared separately in the [deployment guide](deployment.md).
 
 ## 3. Verify your own access before testing automation
 
