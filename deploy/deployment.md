@@ -4,6 +4,11 @@
 whose frontend and backend images have both been successfully published.
 It does not build images or pick the newest release automatically.
 
+For the complete setup and rationale, read [cloud setup](../docs/cloud-setup.md),
+[the pipeline walkthrough](../docs/pipeline.md), and
+[operations/troubleshooting](../docs/operations.md). This page focuses on the
+one-time application-directory preparation and the release invocation.
+
 ## One-time preparation of /opt/optiroute
 
 Run these commands in the **VM SSH terminal**, after OS Login access is working.
@@ -89,7 +94,7 @@ It does not run `compose down`, prune images, or automatically roll back. After
 a startup/readiness failure, .env records the attempted release, and containers
 may be partially updated. `.env.previous` preserves the previous environment
 selection from the most recent attempt; it is not a full configuration backup.
-Failure recovery and rollback are the next deployment-hardening step.
+Release history and rollback automation are intentionally out of scope.
 
 ## Automatic deployment from GitHub
 
