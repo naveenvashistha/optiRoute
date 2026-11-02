@@ -32,6 +32,8 @@ services:
     init: true
     env_file:
       - ./backend/.env
+    ports:
+      - "8000:8000"
     environment:
       # These values override host-specific settings in backend/.env.
       REDIS_URL: redis://redis:6379
