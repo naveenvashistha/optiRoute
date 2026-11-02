@@ -40,7 +40,7 @@ def generate_telemetry_payload(
         start_time: time.time() before the request started
         end_time: time.time() after the response was generated
         route: "CACHE", "LOCAL_SLM", or "CLOUD"
-        intent: 0 (Cacheable) or 1 (Bypass)
+        intent: 1 (Cacheable) or 0 (Bypass)
     """
     try:
         # 1. Calculate time taken

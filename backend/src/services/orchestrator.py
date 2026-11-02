@@ -197,7 +197,7 @@ async def process_chat_stream(request: ChatRequest):
                     yield f"data: {json.dumps({'chunk': chunk})}\n\n"
                     full_answer += chunk
 
-    if cachable and full_answer:
+    if cachable and full_answer and route_taken != "CACHE":
         save_to_cache(user_query, full_answer)
 
     # 3. Save AI response to Global State
