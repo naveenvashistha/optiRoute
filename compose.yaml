@@ -32,11 +32,15 @@ services:
     init: true
     env_file:
       - ./backend/.env
+    ports:
+      - "8000:8000"
     environment:
       # These values override host-specific settings in backend/.env.
       REDIS_URL: redis://redis:6379
       MODEL_PATH: /app/models/intent_mlp_model.joblib
-      ROUTER_MODEL_PATH: /app/models/optiroute_router_model
+      ROUTER_MODEL_PATH: /app/models/optiroute_router_mod
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
     depends_on:
       redis:
         condition: service_healthy

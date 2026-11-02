@@ -52,7 +52,11 @@ async def process_chat_stream(request: ChatRequest):
     # --- PIPELINE CLASSIFICATION ---
     intent = predict_intent(user_query)
     cachable = (intent == 1)
-    difficulty = evaluate_difficulty(user_query)
+
+    # Cache lookup BEFORE the difficulty judge: a cache hit never needs the judge,
+    # so the ~850 ms DistilBERT call is paid only on a miss or a bypassed query.
+    cached_answer = check_cache(user_query) if cachable else None
+    difficulty = 0 if cached_answer else evaluate_difficulty(user_query)
     
     # --- DECOUPLE GLOBAL MEMORY FROM PAYLOAD BUDGET ---
     # Global memory stores up to 8,000 tokens in Redis to optimize network bandwidth.
@@ -78,7 +82,7 @@ async def process_chat_stream(request: ChatRequest):
     route_taken = "LOCAL_SLM" if difficulty == 0 else "CLOUD"
 
     # --- PRE-FLIGHT ESCALATION CHECK ---
-    if difficulty == 0 and raw_global_tokens > budget_limit:
+    if difficulty == 0 and not cached_answer and raw_global_tokens > budget_limit:
         logger.warning(f"Context history ({raw_global_tokens} tokens) exceeds SLM {budget_limit}-token budget. Pre-flight escalating to Cloud LLM.")
         difficulty = 1
         route_taken = "CLOUD_FALLBACK"
@@ -112,12 +116,10 @@ async def process_chat_stream(request: ChatRequest):
     full_answer = ""
     
     # 1. Semantic Cache Hit
-    if cachable:
-        cached_answer = check_cache(user_query)
-        if cached_answer:
-            yield f"data: {json.dumps({'chunk': cached_answer})}\n\n"
-            full_answer = cached_answer
-            route_taken = "CACHE"
+    if cached_answer:
+        yield f"data: {json.dumps({'chunk': cached_answer})}\n\n"
+        full_answer = cached_answer
+        route_taken = "CACHE"
     
     # 2. Live Generation
     if not full_answer:
@@ -197,7 +199,7 @@ async def process_chat_stream(request: ChatRequest):
                     yield f"data: {json.dumps({'chunk': chunk})}\n\n"
                     full_answer += chunk
 
-    if cachable and full_answer:
+    if cachable and full_answer and route_taken != "CACHE":
         save_to_cache(user_query, full_answer)
 
     # 3. Save AI response to Global State

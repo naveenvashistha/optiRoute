@@ -21,8 +21,8 @@ def predict_intent(user_query: str) -> int:
     """
     Embeds the user query and runs it through the neural network.
     Returns:
-        0: Cacheable / Simple Query (Proceed to Semantic Cache)
-        1: Complex Query (Bypass Cache, Route to SLM/Cloud)
+        1: Cacheable / Simple Query (Proceed to Semantic Cache)
+        0: Complex Query (Bypass Cache, Route to SLM/Cloud)
     """
     try:
         # Step 1: Convert text to the 384-dimension vector

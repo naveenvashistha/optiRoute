@@ -1,0 +1,59 @@
+{
+  "queries_total": 100,
+  "queries_valid": 94,
+  "intent": {
+    "accuracy_pct": 96.7,
+    "tp": 14,
+    "fn": 1,
+    "tn": 15,
+    "fp": 0
+  },
+  "cache": {
+    "hit_rate_pct": 100.0,
+    "hits": 7,
+    "possible": 7,
+    "probes": 8,
+    "false_hits": 1,
+    "near_miss_tests": 9
+  },
+  "judge": {
+    "accuracy_pct": 90.9,
+    "correct": 30,
+    "total": 33,
+    "fallback_events": 0
+  },
+  "latency": {
+    "CACHE": {
+      "n": 8,
+      "gw_mean": 3058.0,
+      "gw_p50": 1754.5,
+      "gw_p95": 7406.7,
+      "ttft_mean": 3031.4
+    },
+    "CLOUD": {
+      "n": 16,
+      "gw_mean": 7839.9,
+      "gw_p50": 7360.2,
+      "gw_p95": 12924.4,
+      "ttft_mean": 5573.1
+    },
+    "LOCAL_SLM": {
+      "n": 70,
+      "gw_mean": 14315.9,
+      "gw_p50": 13654.4,
+      "gw_p95": 26689.1,
+      "ttft_mean": 5224.8
+    }
+  },
+  "cost": {
+    "baseline_usd": 0.023918,
+    "actual_usd": 0.008036,
+    "saved_usd": 0.015882,
+    "savings_pct": 66.4
+  },
+  "routes": {
+    "LOCAL_SLM": 70,
+    "CLOUD": 16,
+    "CACHE": 8
+  }
+}
